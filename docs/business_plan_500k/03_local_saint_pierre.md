@@ -15,30 +15,38 @@
 
 ---
 
-## 2. Budget d'aménagement (CAPEX)
+## 2. Budget d'aménagement (CAPEX) — volet « murs »
+
+*Ce document couvre exclusivement l'aménagement des murs du local (travaux, vitrine, bail). Le matériel et les machines de production (cuves, ligne de remplissage, chambre froide, fûts consignés, etc.) sont chiffrés machine par machine dans `05_materiel_investissements.md`, avec leur propre plan de financement — la vision consolidée des deux volets figure au §2.2 ci-dessous.*
 
 | Poste | Montant HT | Détail |
 |---|---|---|
 | Travaux de mise aux normes HACCP (sol, murs, ventilation, évacuation, poste de lavage) | 17 500 € | Conformité sanitaire obligatoire pour montée en volume et entrée CHR/GMS |
-| Équipement labo complémentaire (cuves inox, ligne de remplissage semi-automatisée, chambre froide, paillasses) | 20 000 € | Vient compléter le lyophilisateur et l'ultrasonateur déjà financés par le KAP TPE round 1 |
 | Aménagement espace dégustation / vitrine B2C (comptoir, mobilier, signalétique, éclairage) | 10 000 € | Support du canal Retail (30 % du CA cible) et des ateliers payants |
 | Dépôt de garantie (bail commercial, 3 mois de loyer) | 5 000 € | **Poste déjà budgété et sécurisé** dans le plan de financement bancaire Juin 2026 (« Garantie de loyer laboratoire — 5 000 € ») |
 | Frais d'agence / notaire (bail commercial) | 2 000 € | |
-| Fûts inox consignés (30 unités, système B2B CHR réutilisable) | 4 500 € | Support direct du canal B2B CHR (50 % du CA cible), logique zéro déchet |
-| **TOTAL CAPEX LOCAL** | **59 000 € HT** | |
+| **TOTAL CAPEX « MURS »** | **34 500 € HT** | |
 
-### 2.1 Plan de financement du CAPEX local
+### 2.1 Plan de financement du CAPEX « murs »
 
 | Source | Montant | Statut |
 |---|---|---|
 | Poste « Garantie de loyer laboratoire » (plan de financement bancaire Juin 2026) | 5 000 € | ✔ Déjà sécurisé |
-| Autofinancement (résultat net Année 1 réinvesti — fondateurs sans salaire, cf. doc 02) | 25 000 € | Généré en interne dès M1-M12 |
-| KAP TPE — second dossier (équipement labo complémentaire, plafond 20 000 € HT × 50 %) | 10 000 € | À déposer (nouvel exercice, hors matériel roulant, avant tout achat) |
-| Marge de manœuvre sur le prêt bancaire 50 000 € (réaffectation trésorerie de lancement) | 10 000 € | ✔ Déjà sécurisé |
-| Apport complémentaire associés / trésorerie disponible | 9 000 € | À mobiliser en M4-M5 |
-| **TOTAL RESSOURCES** | **59 000 €** | |
+| Marge de manœuvre sur le prêt bancaire 50 000 € (réaffectation trésorerie de lancement) | 15 000 € | ✔ Déjà sécurisé |
+| Autofinancement (résultat net Année 1 réinvesti — fondateurs sans salaire, cf. doc 02) | 14 500 € | Généré en interne dès M1-M12 |
+| **TOTAL RESSOURCES** | **34 500 €** | |
 
-**Aucune tension de trésorerie identifiée :** le montage repose sur des financements déjà validés dans le dossier bancaire de juin 2026 (garantie de loyer, marge sur le prêt de 50 000 €) et sur l'autofinancement rendu possible par l'absence de charge salariale fondateurs en Année 1 — l'apport externe complémentaire (19 000 €, KAP TPE 2 + apport associés) reste limité.
+### 2.2 Vision consolidée — local + matériel (besoin total à l'ouverture, Phase 2)
+
+| Volet | Montant HT | Document de référence |
+|---|---|---|
+| Aménagement des murs (ci-dessus) | 34 500 € | Présent document, §2 |
+| Matériel & machines Phase 2 | 46 000 € | `05_materiel_investissements.md` §2 |
+| **TOTAL besoin à l'ouverture du local (M4-M5)** | **80 500 € HT** | |
+
+Le plan de financement combiné (garantie de loyer, prêts d'honneur, marge sur le prêt bancaire, KAP TPE round 2, autofinancement étalé, apport associés) est détaillé de façon consolidée dans `05_materiel_investissements.md` §5, pour éviter tout double comptage des mêmes ressources entre les deux documents.
+
+**Aucune tension de trésorerie identifiée :** le montage repose sur des financements déjà validés dans le dossier bancaire de juin 2026 (garantie de loyer, marge sur le prêt de 50 000 €), sur le coussin des prêts d'honneur (30 000 €) et sur l'autofinancement rendu possible par l'absence de charge salariale fondateurs en Année 1.
 
 ---
 
@@ -58,7 +66,7 @@
 ### 4.1 Rôle dans la trajectoire financière
 
 - **Accélérateur de CA :** le local déclenche à lui seul le passage de 1 500 €/mois (fin Phase 1) à 10 000 €/mois (ouverture, M5) puis 25 000 €/mois (fin Phase 2) — il porte la quasi-totalité de la croissance du ramp-up (doc 02).
-- **Générateur de capacité d'autofinancement :** en l'absence de charge salariale fondateurs sur l'Année 1, le résultat net généré (≈ 48 191 €) finance directement une part du CAPEX local (25 000 €) sans recours à l'endettement supplémentaire.
+- **Générateur de capacité d'autofinancement :** en l'absence de charge salariale fondateurs sur l'Année 1, le résultat net généré (≈ 48 191 €) finance directement une part significative du CAPEX « murs + matériel » (39 000 € au total entre le §2.1 ci-dessus et le plan de financement Phase 2 du doc 05) sans recours à l'endettement supplémentaire.
 - **Optimisation du COGS :** l'équipement labo complémentaire (cuves inox, ligne semi-automatisée) et les fûts consignés B2B CHR sont les leviers opérationnels qui font baisser le COGS blended de ~18-20 % (Phase 1-2) à 14 % (Phase 3), condition du modèle EBITDA 50-52 %.
 
 ### 4.2 Le local comme démonstrateur bancaire
