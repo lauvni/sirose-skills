@@ -49,6 +49,8 @@ def main():
                 erreurs.append(f"{nom} : message sanitaire Loi Évin absent (art. L3323-4 CSP)")
             if 'id="controle-age"' not in contenu:
                 erreurs.append(f"{nom} : contrôle d'âge absent (art. L3342-1 CSP)")
+        elif re.search(r"\balcool|\brhum|\bliqueur|\bpunch\b|\bcocktail.{0,40}\b(rhum|alcool)", re.sub(r"<[^>]+>", " ", contenu), flags=re.I):
+            alertes.append(f"{nom} : mention d'alcool alors que vente_alcool est à false — toute référence à une boisson alcoolisée déclenche la Loi Évin")
         if config["financement_ue"]["actif"] and "Cofinancé par l'Union européenne" not in contenu:
             erreurs.append(f"{nom} : mention FEDER « Cofinancé par l'Union européenne » absente (Règl. 2021/1060 art. 47 et 50)")
         if "<html lang=\"fr\">" not in contenu:

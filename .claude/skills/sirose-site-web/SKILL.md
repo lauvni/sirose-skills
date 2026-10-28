@@ -20,8 +20,8 @@ Le site est généré depuis `site_web/config/sirose.json` et `site_web/modeles/
 ## Règles de rédaction (non négociables)
 
 - **Ne jamais inventer** une donnée légale (e-mail, téléphone, hébergeur, licence, médiateur, ingrédients, allergènes, degré). Laisser `A_COMPLETER` et le signaler.
-- **Loi Évin** dès qu'il y a de l'alcool : informations objectives seulement (degré, origine, composition, élaboration, terroir, goût). Pas d'association à la fête, la séduction, le sport, la réussite ; pas de cible jeune.
-- **Aucune allégation santé** : pas de « probiotique », « détox », « digestion », « immunité », « bienfaits ». Aucune allégation du tout sur une boisson > 1,2 % vol.
+- **Aucune référence à l'alcool** : Sir'Ose ne vend pas d'alcool (`vente_alcool: false`) ; ne citer ni rhum, ni cocktail alcoolisé, ni partenaire de boisson alcoolisée, sinon la Loi Évin s'applique. Si l'utilisateur annonce la vente d'un produit alcoolisé, repasser `vente_alcool` à `true` et appliquer la Loi Évin : informations objectives seulement (degré, origine, composition, élaboration, terroir, goût). Pas d'association à la fête, la séduction, le sport, la réussite ; pas de cible jeune.
+- **Aucune allégation santé** : pas de « probiotique », « détox », « digestion », « immunité », « bienfaits ».
 - **Aucune allégation environnementale générique** (« éco-responsable », « zéro déchet », « 100 % circulaire », « durable ») : décrire des faits précis et prouvables.
 - Pas de « bio » ni d'« artisanal » sans justificatif.
 - Prix toujours TTC pour les particuliers, avec prix au litre pour les liquides ; les prix HT sont réservés à la section professionnels.

@@ -1,6 +1,6 @@
 # Obligations légales du site web — SAS Sir'Ose (SIR'OTÉ)
 
-*Checklist personnalisée pour une SAS réunionnaise qui fabrique et vend des koso, sirops et (bientôt) boissons alcoolisées (APE 1101Z), avec un site vitrine financé par KAP Numérique (FEDER). Ce document est un outil de travail, pas une consultation juridique : faites valider les points marqués ⚠️ par l'expert-comptable ou un juriste avant la mise en ligne.*
+*Checklist personnalisée pour une SAS réunionnaise qui fabrique et vend des koso et sirops sans alcool, avec un site vitrine financé par KAP Numérique (FEDER). Ce document est un outil de travail, pas une consultation juridique : faites valider les points marqués ⚠️ par l'expert-comptable ou un juriste avant la mise en ligne.*
 
 Légende : ✅ déjà intégré au site · 🟡 à compléter dans `config/sirose.json` · ⚠️ démarche ou validation à faire hors site
 
@@ -14,37 +14,29 @@ Sanction si absentes : jusqu'à 1 an d'emprisonnement et 75 000 € d'amende (37
 |---|---|
 | Raison sociale, forme, capital, siège, RCS, SIREN | ✅ SAS SIR'OSE, capital variable 1 000 €, RCS Saint-Denis 991 091 166 |
 | N° TVA intracommunautaire | ✅ FR22 991 091 166 — ⚠️ calculé depuis le SIREN : vérifier sur VIES (ec.europa.eu/taxation_customs/vies) |
-| Courriel et téléphone de contact | 🟡 `societe.email`, `societe.telephone` |
+| Courriel et téléphone de contact | ✅ contact.sirose@gmail.com — 🟡 `societe.telephone` |
 | Directeur de la publication | ✅ Lucien MOREAU, Président |
 | Hébergeur : nom, adresse, téléphone | 🟡 `hebergeur.*` |
 | Adresse du siège | ⚠️ Le siège légal est à Saint-Denis (89 bis Chemin des Fougères) mais les dossiers KAP indiquent Saint-Pierre. Le site affiche le siège Kbis + l'atelier Saint-Pierre. Si le siège a été transféré, mettre à jour le Kbis **et** `societe.siege`. |
 
-## 2. Alcool — Code de la santé publique (Loi Évin)
+## 2. Alcool — sans objet aujourd'hui
 
-Activé par `vente.vente_alcool: true` (APE 1101Z + Rhum Koso ~5 % en développement). Si vous ne vendez **aucune** boisson alcoolisée pour l'instant, passez-le à `false` : le contrôle d'âge et le bandeau sanitaire disparaissent.
+Sir'Ose ne vend **aucune boisson alcoolisée** : `vente.vente_alcool` est à `false`, le site n'a donc ni contrôle d'âge ni message Loi Évin.
 
-| Obligation | Référence | Statut |
-|---|---|---|
-| Message sanitaire « L'abus d'alcool est dangereux pour la santé, à consommer avec modération. » sur toute publicité pour l'alcool | Art. L3323-4 CSP | ✅ pied de chaque page |
-| Interdiction de vente aux mineurs, possibilité d'exiger une pièce d'identité | Art. L3342-1 CSP | ✅ contrôle d'âge + CGV §3 |
-| Contenu publicitaire limité aux informations objectives : degré, origine, composition, mode d'élaboration, terroir, qualités gustatives. Pas d'association à la fête, au sport, à la réussite sociale ou sexuelle | Art. L3323-4 CSP | ✅ textes actuels conformes — ⚠️ à respecter pour toute photo ou texte ajouté (pas de photos de soirée avec des bouteilles d'alcool, pas de verre à la main d'une personne jeune) |
-| Pas de publicité alcool sur un site destiné à la jeunesse ou au sport ; pas de pop-up intrusive | Art. L3323-2 9° CSP | ✅ |
-| Licence de vente à emporter (la vente à distance est une vente à emporter) + permis de vente à emporter / formation | Art. L3331-4 CSP | ⚠️ démarche en mairie de Saint-Pierre, puis renseigner `vente.licence_alcool` |
-| Statut fiscal de production d'alcool (entrepositaire agréé, déclaration en douane) | Code des impositions sur les biens et services | ⚠️ à voir avec la Direction régionale des douanes de La Réunion avant de produire le Rhum Koso |
-| Interdiction d'offrir de l'alcool gratuitement à des fins commerciales (sauf dégustation en vue de la vente) | Art. L3322-9 CSP | ⚠️ attention aux jeux-concours sur les réseaux sociaux |
+- ⚠️ **Ne citer aucune boisson alcoolisée sur le site** (y compris un partenaire comme Rhum au Thé ou une recette de cocktail au rhum) : toute référence à l'alcool est une publicité soumise à la Loi Évin (art. L3323-2 et L3323-4 CSP). Le vérificateur le signale.
+- ⚠️ **Code APE** : 1101Z correspond à la « fabrication de boissons alcooliques distillées », ce qui ne colle pas à votre activité. Le code n'est pas obligatoire sur le site (retiré), mais demandez sa correction à l'INSEE (par exemple 1107B « production de boissons rafraîchissantes », à confirmer avec l'expert-comptable).
+- Le jour où le Rhum Koso sera commercialisé : repasser `vente_alcool` à `true` (le contrôle d'âge et le message reviennent automatiquement), obtenir la licence à emporter en mairie et le statut douanier de producteur.
 
 ## 3. Information sur les produits alimentaires
 
 | Obligation | Référence | Statut |
 |---|---|---|
-| Avant tout achat à distance : dénomination, ingrédients, **allergènes**, quantité, conditions de conservation, nom/adresse de l'exploitant, titre alcoométrique (si > 1,2 % vol.) | Règl. (UE) 1169/2011 art. 9 et 14 | ✅ structure prête — 🟡 `produits[].ingredients`, `produits[].allergenes` |
+| Avant tout achat à distance : dénomination, ingrédients, **allergènes**, quantité, conditions de conservation, nom/adresse de l'exploitant, titre alcoométrique seulement si > 1,2 % vol. | Règl. (UE) 1169/2011 art. 9 et 14 | ✅ structure prête — 🟡 `produits[].ingredients`, `produits[].allergenes` |
 | Prix TTC + **prix au litre** pour les liquides | Code conso L112-1, Dir. 98/6/CE | ✅ |
-| TVA à La Réunion : 2,1 % (sirops et boissons sans alcool), 8,5 % (boissons alcoolisées) | CGI art. 296 | ⚠️ confirmer les taux avec l'expert-comptable |
+| TVA à La Réunion : 2,1 % (sirops, boissons sans alcool, produits alimentaires) | CGI art. 296 | ⚠️ confirmer les taux avec l'expert-comptable |
 | **Allégations de santé** : interdiction de « probiotique », « détox », « bon pour la digestion », « renforce l'immunité »… sauf allégation autorisée par l'UE | Règl. (CE) 1924/2006 | ✅ aucune sur le site — ⚠️ point de vigilance majeur pour le koso, souvent vendu avec ce vocabulaire |
-| Toute allégation de santé est **interdite** sur une boisson de plus de 1,2 % vol. | Règl. 1924/2006 art. 4.3 | ⚠️ Rhum Koso |
 | Mention « bio » réservée aux produits certifiés | Règl. (UE) 2018/848 | ⚠️ le terme « bio-fermentation » du business plan est à éviter sur le site |
 | « Artisan / artisanal / fait maison » réservé aux entreprises inscrites au registre des artisans | Loi 96-603 art. 21 | ⚠️ vérifier votre immatriculation avant d'utiliser ce mot |
-| Pictogramme femme enceinte sur les étiquettes des boissons alcoolisées | Art. L3322-2 CSP | ⚠️ étiquetage (hors site) |
 
 ## 4. Allégations environnementales
 
@@ -90,6 +82,29 @@ La directive européenne sur l'accessibilité (en vigueur depuis le 28 juin 2025
 
 ## 9. Propriété intellectuelle
 
-- ⚠️ Déposer la marque **SIR'OTÉ** à l'INPI (classes 32 boissons sans alcool, 33 boissons alcoolisées hors bière, 30 biscuits/infusions) si ce n'est pas fait.
+- ⚠️ Déposer la marque **SIR'OTÉ** à l'INPI (classes 32 boissons sans alcool, 30 biscuits/infusions) si ce n'est pas fait.
 - ⚠️ Récupérer une cession de droits écrite de l'agence Kaza (identité visuelle) et des photographes.
 - ⚠️ Mentionner les partenaires (Délices d'Amandine, Calicoco, Rhum au Thé, Villa Delisle) **avec leur accord écrit**, surtout pour leurs logos.
+
+## 10. Nom de domaine et hébergeur
+
+Le budget KAP Numérique prévoit **200 € HT pour le nom de domaine et l'hébergement de la première année** (subventionnés à 80 %). La subvention n'est versée que sur **facture acquittée au nom de la SAS Sir'Ose** : un hébergement gratuit (GitHub Pages, Netlify gratuit…) ne fournit pas de facture et ne peut donc pas être présenté.
+
+**Nom de domaine — recommandation : `sirote.re`** (le nom de la marque que voient les clients), et si possible `sirose.re` qui redirige vers le premier pour protéger le nom de la société.
+- L'extension **.re** est celle de La Réunion : elle inspire confiance localement et aide le référencement sur l'île. Elle est gérée par l'AFNIC (comme le .fr), environ 10-15 € HT/an.
+- Le domaine doit être enregistré **au nom de la SAS Sir'Ose** (pas d'un associé ni de l'agence), avec un e-mail de l'entreprise.
+- Vérifier la disponibilité sur afnic.fr (« Rechercher un nom de domaine ») ou directement chez l'hébergeur.
+
+**Hébergeur — recommandation : un hébergeur français**, pour garder les données en France (RGPD) et avoir un support en français :
+
+| Hébergeur | Ordre de prix | Pourquoi |
+|---|---|---|
+| **o2switch** (Clermont-Ferrand) | ≈ 7 € HT/mois, soit ≈ 85 € HT/an | Offre unique, e-mails inclus, support réputé ; idéal pour ce site simple |
+| **OVHcloud** (Roubaix) | ≈ 3 à 6 € HT/mois | Le plus connu, domaine .re et hébergement au même endroit |
+| **Infomaniak** (Suisse) | ≈ 6 € HT/mois | Hébergement à faible empreinte énergétique |
+
+Ce site est fait de pages HTML simples : la plus petite offre de n'importe lequel suffit. Une fois choisi, renseigner dans `config/sirose.json` :
+- `marque.url_site` (ex. `https://sirote.re`) ;
+- `hebergeur.nom`, `hebergeur.adresse`, `hebergeur.telephone` (dans les mentions légales de l'hébergeur lui-même).
+
+**Bonus :** avec le domaine, vous pourrez créer une adresse `contact@sirote.re`, plus professionnelle que l'adresse Gmail actuelle (à mettre ensuite dans `societe.email`).

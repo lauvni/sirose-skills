@@ -24,7 +24,7 @@
     "president": "Lucien MOREAU",
     "directeur_general": "Alexandre STEINER",
     "directeur_publication": "Lucien MOREAU, Président",
-    "email": "A_COMPLETER",
+    "email": "contact.sirose@gmail.com",
     "telephone": "A_COMPLETER"
   },
 
@@ -36,8 +36,8 @@
 
   "vente": {
     "vente_en_ligne": false,
-    "vente_alcool": true,
-    "licence_alcool": "A_COMPLETER",
+    "vente_alcool": false,
+    "licence_alcool": "Sans objet (aucune boisson alcoolisée vendue)",
     "mediateur_nom": "A_COMPLETER",
     "mediateur_site": "A_COMPLETER",
     "zone_livraison": "La Réunion",
