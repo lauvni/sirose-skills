@@ -18,6 +18,18 @@ CA = (
        42_000, 40_000, 38_000, 37_000, 38_000, 45_000]                 # Année 3
 )
 PRIX_MOYEN_L = 17.0                 # €HT/L pondéré (doc 02 §6)
+
+# Plafond de production (L/mois) par mois, None = pas de plafond.
+# Scénario « contraint par les devis » (doc 00 §10) : tous les devis d'octobre 2026
+# sont dimensionnés pour 400-500 L/mois → plafond 500 L/mois de M5 à M12.
+PLAFOND_L = None
+
+
+def ca_mois(m):
+    ca = CA[m - 1]
+    if PLAFOND_L is not None and PLAFOND_L.get(m) is not None:
+        ca = min(ca, PLAFOND_L[m] * PRIX_MOYEN_L)
+    return ca
 COGS_TAUX = {1: 0.18, 2: 0.15, 3: 0.14}
 
 # --- Charges d'exploitation mensuelles --------------------------------------
@@ -39,6 +51,9 @@ def opex_mois(m):
         "Véhicule n°2 (dès M13, hypothèse)": 500 if m >= 13 else 0,
         "Logiciel ERP traçabilité HACCP (dès M13)": 200 if m >= 13 else 0,
         "Maintenance équipements / divers": {1: 3_000, 2: 6_000, 3: 8_000}[a] / 12,
+        # Ajout Thémis (mails oct. 2026) : analyses alcool / sucres en laboratoire
+        # (Anton Paar n'est pas un labo prestataire) — provision en attente de devis
+        "Analyses laboratoire (provision)": {1: 2_000, 2: 1_500, 3: 1_500}[a] / 12,
         "Frais d'agence / notaire bail (charge M5)": 2_000 if m == 5 else 0,
         "Masse salariale chargée": (
             (1_050 if m >= 6 else 0) if a == 1 else {2: 61_000, 3: 100_000}[a] / 12
@@ -61,6 +76,9 @@ IMMOS = [
     ("P2 — ligne remplissage, pasteurisateur, filtration, CIP, tables, bacs", 5,
      9_500 + 4_500 + 2_100 + 1_800 + 1_500 + 1_800, 5),
     ("P2 — contrôle qualité", 5, 1_200, 3),
+    # Machine sous vide double cloche Befor SVF 2-600 (prix public HT, mail Befor
+    # du 28/10/2026, hors transport / octroi de mer, remise distributeur non connue)
+    ("P2 — machine sous vide Befor SVF 2-600", 5, 11_326, 5),
     # Phase 2 — vague 2 à M7 (étiqueteuse, fûts, manutention)
     ("P2 — étiqueteuse, 30 fûts, manutention", 7, 2_200 + 4_500 + 1_200, 5),
     # Phase 3 — à M13
@@ -137,7 +155,7 @@ def calcul():
     mensuel = []
     for m in range(1, MOIS + 1):
         a = annee(m)
-        ca = CA[m - 1]
+        ca = ca_mois(m)
         cogs = ca * COGS_TAUX[a]
         lignes = opex_mois(m)
         opex = sum(lignes.values())
@@ -232,6 +250,16 @@ if __name__ == "__main__":
     print("interets", *(e(pl_v[a]["interets"]) for a in (1, 2, 3)), "RN", *(e(pl_v[a]["rn"]) for a in (1, 2, 3)))
     for m, f, s_ in tresorerie(mensuel_v, pl_v):
         print(f"M{m:02d} flux {e(f):>12} cumul {e(s_):>12}")
+    PLAFOND_L = {m: 500 for m in range(5, 13)}
+    pl_c, _, mensuel_c = calcul()
+    print("\n== Scénario contraint par les devis (500 L/mois M5-M12) ==")
+    for k in ("ca", "ebe", "rn"):
+        print(k, *(e(pl_c[a][k]) for a in (1, 2, 3)))
+    print("marge EBE", *(f"{pl_c[a]['ebe'] / pl_c[a]['ca']:.1%}" for a in (1, 2, 3)))
+    serie_c = tresorerie(mensuel_c, pl_c)
+    print("tréso", [(m, round(s_ / 1000, 1)) for m, _, s_ in serie_c if m in (3, 4, 5, 7, 10, 12, 13, 16, 18, 24, 36)])
+    print("tréso mini", e(min(s_ for _, _, s_ in serie_c)))
+    PLAFOND_L = None
     print("\n== Sensibilité CA (variante retenue) ==")
     for f in (1.0, 0.8, 0.7, 0.5):
         p, mini = sensibilite(f)
