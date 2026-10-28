@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+{{> tete }}
+  <title>Conditions générales de vente — {{ marque.nom_commercial }}</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+{{> entete }}
+  <main id="contenu" class="section page-legale">
+    <div class="conteneur conteneur--etroit">
+      <h1>Conditions générales de vente</h1>
+      <p class="note">Applicables aux ventes conclues entre {{ societe.raison_sociale }} et les consommateurs. Les ventes aux professionnels font l'objet de conditions particulières sur demande. Dernière mise à jour : {{ date_maj }}.</p>
+
+      <h2>1. Vendeur</h2>
+      <p>{{ societe.raison_sociale }} ({{ marque.nom_commercial }}), {{ societe.forme_juridique }} au capital de {{ societe.capital }}, {{ societe.rcs }}, siège : {{ societe.siege }}. Courriel : {{ societe.email }} · Téléphone : {{ societe.telephone }}.</p>
+
+      <h2>2. Produits</h2>
+      <p>Les caractéristiques essentielles des produits (dénomination, contenance, ingrédients, allergènes{{ si vente_alcool }}, titre alcoométrique{{ fin }}) sont présentées sur leur fiche avant toute commande, conformément au Règlement (UE) n° 1169/2011. Les photographies ne sont pas contractuelles.</p>
+{{ si vente_alcool }}
+      <h2>3. Vente de boissons alcooliques</h2>
+      <p>La vente de boissons alcooliques est interdite aux mineurs de moins de 18 ans (art. L3342-1 du Code de la santé publique). En commandant un produit alcoolisé, le client certifie avoir 18 ans révolus. {{ societe.raison_sociale }} peut exiger une pièce d'identité lors du retrait ou de la livraison et refuser la remise du produit à défaut. Licence : {{ vente.licence_alcool }}.</p>
+{{ fin }}
+      <h2>4. Prix</h2>
+      <p>Les prix sont indiqués en euros toutes taxes comprises (TVA applicable à La Réunion incluse), hors frais de livraison. Le prix au litre est indiqué pour les produits liquides. Frais de livraison : {{ vente.frais_livraison }}.</p>
+
+      <h2>5. Commande et paiement</h2>
+      <p>La commande est ferme après confirmation par {{ societe.raison_sociale }} et paiement. Moyens de paiement acceptés : {{ vente.moyens_paiement }}. Une facture est remise avec chaque commande.</p>
+
+      <h2>6. Livraison et retrait</h2>
+      <p>Zone de livraison : {{ vente.zone_livraison }}. Délai : {{ vente.delai_livraison }}. Retrait possible à l'atelier ({{ societe.atelier }}) sur rendez-vous. À défaut de délai indiqué, la livraison intervient au plus tard 30 jours après la commande (art. L216-1 du Code de la consommation). Les produits doivent être conservés selon les indications de l'étiquette dès réception.</p>
+
+      <h2>7. Droit de rétractation</h2>
+      <p>Pour une commande passée à distance, le client dispose de 14 jours à compter de la réception pour se rétracter, sans motif (art. L221-18 du Code de la consommation), en adressant le formulaire ci-dessous ou toute déclaration dénuée d'ambiguïté à {{ societe.email }}. Le remboursement intervient dans les 14 jours ; les frais de retour sont à la charge du client.</p>
+      <p><strong>Exceptions (art. L221-28) :</strong> le droit de rétractation ne s'applique pas aux produits susceptibles de se détériorer ou de se périmer rapidement, ni aux produits descellés après la livraison qui ne peuvent être renvoyés pour des raisons d'hygiène ou de protection de la santé, ni aux produits confectionnés selon les spécifications du client.</p>
+      <details class="formulaire-type">
+        <summary>Formulaire type de rétractation</summary>
+        <p>À l'attention de {{ societe.raison_sociale }}, {{ societe.siege }}, {{ societe.email }} :<br>
+        Je vous notifie par la présente ma rétractation du contrat portant sur la vente du bien ci-dessous :<br>
+        Commandé le / reçu le : …<br>
+        Nom du consommateur : …<br>
+        Adresse du consommateur : …<br>
+        Signature (en cas de notification sur papier) : …<br>
+        Date : …</p>
+      </details>
+
+      <h2>8. Garanties légales</h2>
+      <div class="encadre">
+        <p>Le consommateur dispose d'un délai de deux ans à compter de la délivrance du bien pour obtenir la mise en œuvre de la <strong>garantie légale de conformité</strong> en cas d'apparition d'un défaut de conformité (art. L217-3 et suivants du Code de la consommation). Durant ce délai, le consommateur n'est tenu d'établir que l'existence du défaut de conformité et non la date d'apparition de celui-ci. La garantie donne droit à la réparation ou au remplacement du bien dans un délai de trente jours suivant la demande, sans frais ni inconvénient majeur ; à défaut, à une réduction du prix ou à la résolution du contrat. Le vendeur qui fait obstacle de mauvaise foi à la mise en œuvre de la garantie légale de conformité encourt une amende civile d'un montant maximal de 300 000 euros (art. L241-5).</p>
+        <p>Le consommateur bénéficie également de la <strong>garantie légale des vices cachés</strong> (art. 1641 à 1649 du Code civil), pendant deux ans à compter de la découverte du défaut.</p>
+      </div>
+
+      <h2>9. Réclamations et médiation</h2>
+      <p>Toute réclamation peut être adressée à {{ societe.email }}. En cas de litige non résolu, le consommateur peut recourir gratuitement au médiateur de la consommation (art. L612-1) : {{ vente.mediateur_nom }} — {{ vente.mediateur_site }}.</p>
+
+      <h2>10. Droit applicable</h2>
+      <p>Les présentes conditions sont soumises au droit français. À défaut de résolution amiable, les tribunaux compétents sont ceux désignés par la loi.</p>
+    </div>
+  </main>
+{{> pied }}
+</body>
+</html>

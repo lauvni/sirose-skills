@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+{{> tete }}
+  <title>{{ marque.nom_commercial }} — Koso & sirops fermentés de La Réunion</title>
+  <meta name="description" content="{{ marque.slogan }}. Élaborés à Saint-Pierre par {{ societe.raison_sociale }}.">
+</head>
+<body>
+{{> entete }}
+  <main id="contenu">
+    <section class="hero">
+      <div class="conteneur">
+        <p class="surtitre">Saint-Pierre · La Réunion · depuis {{ marque.annee_creation }}</p>
+        <h1>{{ marque.slogan }}</h1>
+        <p class="hero__texte">{{ marque.accroche }}</p>
+        <div class="hero__actions">
+          <a class="bouton" href="#gamme">Découvrir la gamme</a>
+          <a class="bouton bouton--secondaire" href="#pro">Espace professionnels</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gamme" class="section">
+      <div class="conteneur">
+        <h2>La gamme</h2>
+        <p class="intro">Prix TTC. Informations sur les ingrédients et allergènes disponibles sur chaque produit, avant tout achat.</p>
+        <div class="grille-produits">
+{{ produits_html }}
+        </div>
+      </div>
+    </section>
+
+    <section id="savoir-faire" class="section section--teinte">
+      <div class="conteneur deux-colonnes">
+        <div>
+          <h2>Notre savoir-faire</h2>
+          <p>Le koso est une boisson fermentée d'origine japonaise. Nous l'élaborons à La Réunion avec des fruits péi et des co-produits de l'agroalimentaire local : agrumes pressés, cosses de cacao, marcs de café, fruits déclassés, drêches de thé.</p>
+          <p>Nos procédés : fermentation contrôlée, extraction par ultrasons, pasteurisation douce sous vide, lyophilisation à froid.</p>
+        </div>
+        <ul class="faits">
+          <li><strong>Origine</strong> Fruits et co-produits de La Réunion</li>
+          <li><strong>Atelier</strong> Saint-Pierre</li>
+          <li><strong>Partenaires</strong> Délices d'Amandine, Calicoco, Rhum au Thé</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pro" class="section">
+      <div class="conteneur">
+        <h2>{{ offre_pro.titre }}</h2>
+        <p>{{ offre_pro.texte }}</p>
+        <p class="prix">{{ offre_pro.tarif_chr }}</p>
+        <p class="note">Tarifs professionnels réservés aux clients professionnels. Conditions de vente B2B sur demande.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--teinte">
+      <div class="conteneur">
+        <h2>Contact</h2>
+        <p>Écrivez-nous : {{ societe.email }} · Téléphone : {{ societe.telephone }}</p>
+        <p>Atelier : {{ societe.atelier }}</p>
+      </div>
+    </section>
+  </main>
+{{> pied }}
+</body>
+</html>

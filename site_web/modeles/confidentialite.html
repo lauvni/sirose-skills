@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+{{> tete }}
+  <title>Confidentialité &amp; cookies — {{ marque.nom_commercial }}</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+{{> entete }}
+  <main id="contenu" class="section page-legale">
+    <div class="conteneur conteneur--etroit">
+      <h1>Politique de confidentialité et de cookies</h1>
+      <p class="note">Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 « Informatique et Libertés ». Dernière mise à jour : {{ date_maj }}.</p>
+
+      <h2>Responsable du traitement</h2>
+      <p>{{ societe.raison_sociale }}, {{ societe.siege }}, représentée par {{ societe.president }}, Président. Contact : {{ societe.email }}.</p>
+
+      <h2>Données collectées et finalités</h2>
+      <table>
+        <thead><tr><th>Traitement</th><th>Données</th><th>Base légale</th><th>Durée de conservation</th></tr></thead>
+        <tbody>
+          <tr><td>Réponse aux demandes de contact (courriel, téléphone)</td><td>Nom, coordonnées, contenu du message</td><td>Intérêt légitime</td><td>3 ans après le dernier échange</td></tr>
+          <tr><td>Gestion des commandes et facturation</td><td>Identité, coordonnées, adresse de livraison, historique d'achat</td><td>Exécution du contrat ; obligation légale</td><td>Durée de la relation, puis 10 ans pour les pièces comptables (art. L123-22 C. com.)</td></tr>
+          <tr><td>Prospection des clients professionnels (CHR, cavistes)</td><td>Coordonnées professionnelles</td><td>Intérêt légitime</td><td>3 ans après le dernier contact</td></tr>
+        </tbody>
+      </table>
+      <p>Aucune donnée n'est vendue ni transmise à des tiers à des fins commerciales. Destinataires : l'équipe {{ societe.raison_sociale }}, l'expert-comptable, l'hébergeur ({{ hebergeur.nom }}) et le prestataire de paiement le cas échéant.</p>
+
+      <h2>Vos droits</h2>
+      <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de définir des directives sur leur sort après votre décès. Pour les exercer : {{ societe.email }}. Réponse sous un mois. Vous pouvez introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr/fr/plaintes">cnil.fr/plaintes</a>).</p>
+
+      <h2>Cookies et traceurs</h2>
+      <p>Ce site n'utilise <strong>aucun cookie publicitaire, de mesure d'audience ou de réseau social</strong>. C'est pourquoi aucun bandeau de consentement ne vous est présenté.</p>
+{{ si vente_alcool }}
+      <p>Seul un traceur strictement nécessaire est utilisé : la mémorisation, pour la durée de votre visite (stockage de session du navigateur), de votre réponse au contrôle d'âge. Il est exempté de consentement (art. 82 de la loi Informatique et Libertés) et s'efface à la fermeture de l'onglet.</p>
+{{ fin }}
+      <p>Si des outils de mesure d'audience ou des contenus tiers (vidéos, cartes, réseaux sociaux) sont ajoutés, cette page sera mise à jour et votre consentement sera recueilli au préalable.</p>
+    </div>
+  </main>
+{{> pied }}
+</body>
+</html>

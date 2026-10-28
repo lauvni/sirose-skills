@@ -1,0 +1,20 @@
+  <footer class="pied">
+    <div class="conteneur">
+{{ si vente_alcool }}
+      <p class="message-sanitaire">L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+{{ fin }}
+{{ si financement_ue }}
+      <div class="financement-ue">
+        <img src="assets/embleme-ue.svg" alt="Drapeau de l'Union européenne" width="60" height="40">
+        <p><strong>Cofinancé par l'Union européenne</strong><br>{{ financement_ue.texte }}</p>
+      </div>
+{{ fin }}
+      <nav class="pied__liens" aria-label="Informations légales">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">Conditions générales de vente</a>
+        <a href="confidentialite.html">Confidentialité &amp; cookies</a>
+      </nav>
+      <p class="pied__identite">© {{ annee }} {{ societe.raison_sociale }} — {{ marque.nom_commercial }} · {{ societe.rcs }} · Élaboré à Saint-Pierre, La Réunion</p>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>

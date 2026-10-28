@@ -1,0 +1,26 @@
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+{{ si vente_alcool }}
+  <div id="controle-age" class="controle-age" role="dialog" aria-modal="true" aria-labelledby="titre-age" hidden>
+    <div class="controle-age__boite">
+      <p class="logo">{{ marque.nom_commercial }}</p>
+      <h2 id="titre-age">Avez-vous 18 ans ou plus ?</h2>
+      <p>Ce site présente des boissons alcoolisées. La vente d'alcool est interdite aux mineurs (art. L3342-1 du Code de la santé publique).</p>
+      <div class="controle-age__actions">
+        <button type="button" class="bouton" data-age="oui">Oui, j'ai 18 ans ou plus</button>
+        <a class="bouton bouton--secondaire" href="https://www.alcool-info-service.fr/">Non</a>
+      </div>
+    </div>
+  </div>
+{{ fin }}
+  <header class="entete">
+    <div class="conteneur entete__ligne">
+      <a class="logo" href="index.html">{{ marque.nom_commercial }}</a>
+      <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu" aria-label="Navigation principale">
+        <a href="index.html#gamme">La gamme</a>
+        <a href="index.html#savoir-faire">Savoir-faire</a>
+        <a href="index.html#pro">Professionnels</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>

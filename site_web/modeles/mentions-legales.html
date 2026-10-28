@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+{{> tete }}
+  <title>Mentions légales — {{ marque.nom_commercial }}</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+{{> entete }}
+  <main id="contenu" class="section page-legale">
+    <div class="conteneur conteneur--etroit">
+      <h1>Mentions légales</h1>
+      <p class="note">Informations publiées en application de l'article 1-1 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN). Dernière mise à jour : {{ date_maj }}.</p>
+
+      <h2>Éditeur du site</h2>
+      <ul>
+        <li><strong>Raison sociale :</strong> {{ societe.raison_sociale }} (nom commercial : {{ marque.nom_commercial }})</li>
+        <li><strong>Forme juridique :</strong> {{ societe.forme_juridique }}</li>
+        <li><strong>Capital social :</strong> {{ societe.capital }}</li>
+        <li><strong>Siège social :</strong> {{ societe.siege }}</li>
+        <li><strong>Immatriculation :</strong> {{ societe.rcs }}</li>
+        <li><strong>N° TVA intracommunautaire :</strong> {{ societe.tva_intracom }}</li>
+        <li><strong>Code APE :</strong> {{ societe.code_ape }}</li>
+        <li><strong>Atelier de production :</strong> {{ societe.atelier }}</li>
+        <li><strong>Courriel :</strong> {{ societe.email }}</li>
+        <li><strong>Téléphone :</strong> {{ societe.telephone }}</li>
+        <li><strong>Directeur de la publication :</strong> {{ societe.directeur_publication }}</li>
+      </ul>
+{{ si vente_alcool }}
+      <h2>Vente de boissons alcooliques</h2>
+      <p>Licence de vente : {{ vente.licence_alcool }}. La vente de boissons alcooliques est interdite aux mineurs de moins de 18 ans (art. L3342-1 du Code de la santé publique).</p>
+{{ fin }}
+      <h2>Hébergement</h2>
+      <ul>
+        <li><strong>Hébergeur :</strong> {{ hebergeur.nom }}</li>
+        <li><strong>Adresse :</strong> {{ hebergeur.adresse }}</li>
+        <li><strong>Téléphone :</strong> {{ hebergeur.telephone }}</li>
+      </ul>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>La marque {{ marque.nom_commercial }}, les textes, photographies, logos et éléments graphiques de ce site sont la propriété de {{ societe.raison_sociale }} ou de leurs auteurs. Toute reproduction sans autorisation écrite est interdite (art. L122-4 du Code de la propriété intellectuelle).</p>
+{{ si financement_ue }}
+      <h2>Financement</h2>
+      <p>{{ financement_ue.texte }} Programme : {{ financement_ue.programme }}.</p>
+{{ fin }}
+      <h2>Données personnelles</h2>
+      <p>Voir notre <a href="confidentialite.html">politique de confidentialité et de cookies</a>.</p>
+    </div>
+  </main>
+{{> pied }}
+</body>
+</html>

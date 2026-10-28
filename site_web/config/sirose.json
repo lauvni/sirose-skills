@@ -1,0 +1,118 @@
+{
+  "_note": "Source unique de vérité du site. Toute valeur 'A_COMPLETER' bloque la mise en ligne (voir outils/verifier_conformite.py). Données issues de docs/business_plan_500k/01_audit_fichiers.md.",
+
+  "marque": {
+    "nom_commercial": "SIR'OTÉ",
+    "slogan": "Koso & sirops fermentés, élaborés à La Réunion à partir de co-produits péi",
+    "accroche": "Nous transformons les co-produits de l'agroalimentaire réunionnais — agrumes pressés, cosses de cacao, marcs de café, fruits déclassés — en sirops et koso fermentés, élaborés à Saint-Pierre.",
+    "url_site": "A_COMPLETER",
+    "annee_creation": "2025"
+  },
+
+  "societe": {
+    "raison_sociale": "SAS SIR'OSE",
+    "forme_juridique": "Société par actions simplifiée (SAS) à capital variable",
+    "capital": "1 000 €",
+    "siren": "991 091 166",
+    "rcs": "RCS Saint-Denis de La Réunion 991 091 166",
+    "tva_intracom": "FR22 991 091 166",
+    "tva_intracom_a_verifier": true,
+    "code_ape": "1101Z — Fabrication de boissons alcooliques distillées",
+    "date_immatriculation": "9 octobre 2025",
+    "siege": "89 bis Chemin des Fougères, 97400 Saint-Denis, La Réunion",
+    "atelier": "43C Chemin Luspot, 97410 Saint-Pierre, La Réunion",
+    "president": "Lucien MOREAU",
+    "directeur_general": "Alexandre STEINER",
+    "directeur_publication": "Lucien MOREAU, Président",
+    "email": "A_COMPLETER",
+    "telephone": "A_COMPLETER"
+  },
+
+  "hebergeur": {
+    "nom": "A_COMPLETER",
+    "adresse": "A_COMPLETER",
+    "telephone": "A_COMPLETER"
+  },
+
+  "vente": {
+    "vente_en_ligne": false,
+    "vente_alcool": true,
+    "licence_alcool": "A_COMPLETER",
+    "mediateur_nom": "A_COMPLETER",
+    "mediateur_site": "A_COMPLETER",
+    "zone_livraison": "La Réunion",
+    "delai_livraison": "A_COMPLETER",
+    "frais_livraison": "A_COMPLETER",
+    "moyens_paiement": "Carte bancaire, virement, espèces (retrait atelier)"
+  },
+
+  "financement_ue": {
+    "actif": true,
+    "programme": "KAP Numérique — Programme FEDER 2021-2027 La Réunion",
+    "texte": "Ce site a été réalisé avec le soutien de la Région Réunion dans le cadre du dispositif KAP Numérique, cofinancé par l'Union européenne (FEDER)."
+  },
+
+  "produits": [
+    {
+      "nom": "SIR'OTÉ Koso — Bouteille",
+      "format": "50 cl",
+      "prix_ttc": "12,00 €",
+      "prix_litre": "24,00 €/L",
+      "description": "Notre koso signature, fermenté lentement à partir de fruits péi.",
+      "alcool": false,
+      "degre": "",
+      "allergenes": "A_COMPLETER",
+      "ingredients": "A_COMPLETER"
+    },
+    {
+      "nom": "SIR'OTÉ Koso — Format dégustation",
+      "format": "12,5 cl",
+      "prix_ttc": "4,00 €",
+      "prix_litre": "32,00 €/L",
+      "description": "Le format découverte, idéal pour goûter la gamme.",
+      "alcool": false,
+      "degre": "",
+      "allergenes": "A_COMPLETER",
+      "ingredients": "A_COMPLETER"
+    },
+    {
+      "nom": "Bombes à cocktail",
+      "format": "Pack de 15",
+      "prix_ttc": "7,90 €",
+      "prix_litre": "",
+      "description": "Plongez, laissez fondre, servez. Des cocktails maison en un geste.",
+      "alcool": false,
+      "degre": "",
+      "allergenes": "A_COMPLETER",
+      "ingredients": "A_COMPLETER"
+    },
+    {
+      "nom": "Infusions solides × Délices d'Amandine",
+      "format": "Pack",
+      "prix_ttc": "27,56 €",
+      "prix_litre": "",
+      "description": "Infusions solides co-créées avec Délices d'Amandine.",
+      "alcool": false,
+      "degre": "",
+      "allergenes": "A_COMPLETER",
+      "ingredients": "A_COMPLETER"
+    },
+    {
+      "nom": "Biscuits co-produits × Calicoco",
+      "format": "10 pièces",
+      "prix_ttc": "10,55 €",
+      "prix_litre": "",
+      "description": "Des biscuits nés de nos co-produits, avec Calicoco.",
+      "alcool": false,
+      "degre": "",
+      "allergenes": "A_COMPLETER",
+      "ingredients": "A_COMPLETER"
+    }
+  ],
+
+  "offre_pro": {
+    "titre": "Hôtels, bars, restaurants, cavistes",
+    "texte": "Format CHR 1 L, accompagnement mixologie et fiches recettes. Déjà servi à l'Hôtel Villa Delisle (4★).",
+    "tarif_chr": "Koso format CHR 1 L — 23,00 € HT"
+  }
+}
