@@ -1,5 +1,7 @@
 # 02 — Modélisation Financière & P&L Prévisionnel — Trajectoire 500 000 € HT
 
+> **⚖️ Arbitrage Thémis (28/10/2026) :** les chiffres de ce document concernés par les corrections C1, C2, C3, C5 dans `00_BP_reference.md` (registre §1) sont remplacés par ceux du BP de référence, qui prévaut.
+
 *Calendrier retenu : M1 = août 2026 (cohérent avec l'horizon du BP bancaire Juin 2026), soit M12 = juillet 2027, M24 = juillet 2028, Année 3 (vitesse de croisière pleine) = août 2028 – juillet 2029.*
 
 ---

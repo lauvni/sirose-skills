@@ -1,5 +1,7 @@
 # 05 — Chiffrage Détaillé du Matériel & des Machines — Trajectoire 500 000 € HT
 
+> **⚖️ Arbitrage Thémis (28/10/2026) :** les chiffres de ce document concernés par les corrections C7, C8, C9, C12 dans `00_BP_reference.md` (registre §1) sont remplacés par ceux du BP de référence, qui prévaut.
+
 *Ce document détaille, machine par machine, l'investissement nécessaire pour passer de la capacité actuelle (50-100 L/mois, labo partagé) à la capacité cible de la Phase 3 (2 000-2 500 L/mois, doc 02 §1.3-1.5). Il affine et remplace les montants forfaitaires ("Équipement labo complémentaire — 20 000 €") posés dans `03_local_saint_pierre.md` : le chiffrage machine par machine ci-dessous fait apparaître un besoin réel plus élevé, avec un plan de financement révisé en conséquence (§5).*
 
 ---

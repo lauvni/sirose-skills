@@ -1,5 +1,7 @@
 # 03 — Plan d'Aménagement & CAPEX Local Saint-Pierre — Étape charnière vers la « Maison Sir'Ose »
 
+> **⚖️ Arbitrage Thémis (28/10/2026) :** les chiffres de ce document concernés par les corrections C4, C6, C8, C10 dans `00_BP_reference.md` (registre §1) sont remplacés par ceux du BP de référence, qui prévaut.
+
 *Le local artisanal & vitrine de Saint-Pierre est le pivot opérationnel de la Business Plan v2.0 : il permet le passage de la production partagée (50-100 L/mois) à l'échelle industrielle intermédiaire (2 000-2 500 L/mois), déclenchant la Phase 2 du ramp-up (doc 02) et servant de démonstrateur pour le futur projet phare « Maison Sir'Ose ».*
 
 ---
