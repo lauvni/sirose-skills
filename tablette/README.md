@@ -14,16 +14,18 @@ Tablette : Samsung Galaxy Tab 3 10.1 — GT-P5210 — Android 4.4.2.
    La dernière version possible sur cette tablette est la 81 : c'est normal.
 2. Ne pas utiliser le navigateur « Internet » d'origine Samsung, il est trop ancien.
 
-### 1.2 Installer le certificat de sécurité (indispensable)
-La page est hébergée en HTTPS avec un certificat **Let's Encrypt**, qu'Android 4.4 ne connaît pas d'origine. Sans cette étape, Chrome affiche « Votre connexion n'est pas privée ».
+### 1.2 Vérifier le certificat de sécurité
+La page est hébergée sur Netlify en HTTPS, avec un certificat **DigiCert** (racine « DigiCert Global Root G2 »). Il n'est pas certain qu'Android 4.4 la connaisse d'origine.
 
-1. Sur la tablette, dans Chrome, ouvrir : `http://x1.i.lencr.org/` → un fichier `isrgrootx1.der` (ou `.crt`) est téléchargé.
-   *Si la page ne s'ouvre pas, télécharger le fichier « ISRG Root X1 (DER) » depuis letsencrypt.org/certificates sur un ordinateur et le copier dans le dossier `Download` de la tablette par câble USB.*
-2. **Paramètres** › **Sécurité** › **Installer depuis la mémoire** (ou « Installer à partir de la carte SD »).
-3. Choisir le fichier, lui donner le nom **ISRG Root X1**, usage **VPN et applications**, puis **OK**.
-4. Android demande un code de verrouillage d'écran s'il n'y en a pas : en créer un (code PIN de l'écran de la tablette, différent du code du tableau de bord si vous voulez).
+1. Dans Chrome, ouvrir l'adresse du tableau de bord (étape 1.4).
+2. **Si la page s'ouvre normalement** (cadenas, écran « SIR'OSE » qui demande la phrase de passe) : rien à faire, passer à 1.3.
+3. **Si Chrome affiche « Votre connexion n'est pas privée »** :
+   1. Sur la tablette, télécharger le certificat racine : `https://cacerts.digicert.com/DigiCertGlobalRootG2.crt` (si le lien ne s'ouvre pas, le télécharger sur un ordinateur et le copier dans le dossier `Download` de la tablette par câble USB).
+   2. **Paramètres** › **Sécurité** › **Installer depuis la mémoire**, choisir le fichier, le nommer **DigiCert G2**, usage **VPN et applications**, **OK**.
+   3. Android demande de créer un verrouillage d'écran s'il n'y en a pas : en créer un.
+   4. Recharger la page.
 
-**Plan B** si le certificat ne passe toujours pas : installer **Firefox 68** (dernière version compatible Android 4.4, depuis l'APK officiel de Mozilla : archive.mozilla.org › pub › mobile › releases › 68.12.0) — Firefox embarque ses propres certificats.
+**Plan B** si l'alerte persiste : installer **Firefox 68** (dernière version compatible Android 4.4, APK officiel Mozilla : archive.mozilla.org › pub › mobile › releases › 68.12.0), qui embarque ses propres certificats.
 
 ### 1.3 Garder l'écran allumé
 1. **Paramètres** › **À propos de l'appareil** › appuyer **7 fois** sur **Numéro de version** → « Mode développeur activé ».
@@ -31,7 +33,7 @@ La page est hébergée en HTTPS avec un certificat **Let's Encrypt**, qu'Android
 3. Brancher la tablette sur secteur en permanence.
 
 ### 1.4 Ouvrir le tableau de bord
-1. Dans Chrome, ouvrir l'adresse secrète fournie (format `https://sirose-tablette-xxxxxx.netlify.app`). **Ne la partagez pas.**
+1. Dans Chrome, ouvrir l'adresse secrète fournie (`https://sirose-tablette-k7q4zm.netlify.app`). **Ne la partagez pas.**
 2. Saisir la **phrase de passe du tableau de bord** → l'écran s'affiche. Elle est mémorisée, plus besoin de la retaper.
 3. Menu Chrome **⋮** › **Ajouter à l'écran d'accueil** → l'icône « Sir'Ose » ouvre la page en plein écran.
 

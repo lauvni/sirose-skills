@@ -55,14 +55,14 @@ ARGOS **ne calcule rien** : il écrit les données brutes dans `argent_entree.js
 Dossier Drive « Pièces associés » · pièces d'identité · RIB / IBAN · CV · justificatifs personnels (EDF, Pôle emploi / France Travail…) · montants ARE, RSA, APL des fondateurs.
 
 ## 6. Exécution (procédure de la tâche planifiée)
-Netlify : site `SITE_ID_A_RENSEIGNER` · URL `https://SITE_A_RENSEIGNER.netlify.app` (renseignés à la mise en service).
+Netlify : projet `sirose-tablette-k7q4zm`, siteId `1c93f9b6-5033-488b-a19a-aa3e4157cfcc`, URL `https://sirose-tablette-k7q4zm.netlify.app`. L'environnement cloud « sirose-skills » autorise `api.netlify.com`, `netlify-mcp.netlify.app` et cette URL.
 1. Lire les sources (§1) ; en cas d'échec d'une source, marquer le bloc concerné `indisponible`.
 2. Écrire `/tmp/argos/dashboard.json` (schéma v1, `genere_le` = maintenant, `prochaine_maj` = prochain créneau 06:53 / 12:53 / 18:53 ; **toujours avec le fuseau `+04:00`**, sinon la publication est refusée) et `/tmp/argos/argent_entree.json`.
 3. Depuis la racine du dépôt :
    ```bash
-   python3 -m tablette.publier.publier /tmp/argos/dashboard.json --argent /tmp/argos/argent_entree.json --precedent-url https://SITE_A_RENSEIGNER.netlify.app/data.enc --sortie dist/
+   python3 -m tablette.publier.publier /tmp/argos/dashboard.json --argent /tmp/argos/argent_entree.json --precedent-url https://sirose-tablette-k7q4zm.netlify.app/data.enc --sortie dist/
    ```
    Code de sortie 2 → lire l'erreur, corriger `dashboard.json` (jamais en supprimant le garde-fou) et relancer.
-4. Déployer le dossier `dist/` sur le site Netlify ci-dessus (connecteur Netlify `deploy-site` avec ce siteId, ou `netlify deploy --prod --dir dist --site <siteId>`).
+4. Déployer `dist/` : appeler le connecteur Netlify `deploy-site` avec le siteId ci-dessus ; il renvoie une commande `npx -y @netlify/mcp@latest --site-id … --proxy-path …`. L'exécuter **depuis le dossier `dist/`** en la préfixant de `NODE_USE_ENV_PROXY=1` (sinon Node ne passe pas par le proxy réseau). Attendre « Deploy is ready ».
 5. Supprimer `/tmp/argos/` (aucune copie en clair ne doit rester).
 6. Répondre par le résumé de 3 lignes. Ne rien commiter.
