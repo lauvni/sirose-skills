@@ -1,6 +1,6 @@
 # Tablette de pilotage Sir'Ose + agent ARGOS — Document de conception
 
-*18 novembre 2026 — Alexandre STEINER (DG) — statut : à valider*
+*18 novembre 2026 — Alexandre STEINER (DG) — statut : validé le 18/11/2026*
 
 ## 1. Intention
 
@@ -106,9 +106,9 @@ La tablette sert **uniquement à lire**. Alexandre agit ensuite depuis l'**appli
 
 - ① 3 priorités maximum, chacune formulée comme une commande à dicter ensuite dans l'app Claude.
 - ② Tâches de la base Notion **Tâches Sir'Ose**, non terminées, en retard ou à échéance dans les 7 jours, **et** échéances légales du registre THEMIS à 30 jours maximum (source `registre`). *Choix de Claude.*
-- ③ 8 mails maximum, triés par urgence, chacun avec son rattachement (« ↔ Villa Naya (client) », « ↔ BPI (financeur) »).
+- ③ 8 mails maximum, triés par urgence, chacun avec son rattachement (« ↔ Villa Naya (client) », « ↔ BPI (financeur) »). **Règle d'affichage (validée par Alexandre)** : un fil s'affiche s'il est **dans la boîte de réception** (non archivé), date de **moins de 14 jours**, et que **son dernier message ne vient pas de Sir'Ose**. Répondre ou archiver le fait donc disparaître à la mise à jour suivante.
 - ④ Nombre de clients et financeurs par statut, et les 3 dernières évolutions.
-- ⑤ CA facturé et encaissé sur la période, comparé à l'objectif de la phase du BP v2.0 (doc 02).
+- ⑤ **Sources et période (validées par Alexandre)** : **facturé** = factures présentes dans Drive ; **encaissé** = mails de paiement Payzen et Qonto, dédoublonnés (un même paiement notifié par les deux ne compte qu'une fois). Affichage du **mois en cours** comparé à l'objectif mensuel du BP v2.0 (doc 02), avec le **cumul de la phase** en dessous. L'objectif change avec la phase (Phase 1 jusqu'à fin novembre 2026, Phase 2 à partir de décembre) : la phase est déterminée à partir de la date.
 - Lisibilité : texte d'au moins 18 px, fort contraste, thème sombre (écran allumé en permanence, chez soi).
 
 ### 5.4 Format des données
