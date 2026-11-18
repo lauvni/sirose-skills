@@ -1,4 +1,5 @@
 """Bloc « Argent » : facturé / encaissé vs objectifs du BP v2.0 (doc 02, M1 = août 2026)."""
+import re
 from datetime import date
 
 MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
@@ -54,13 +55,24 @@ def _objectif_periode(debut: date, fin: date) -> int:
     return total
 
 
-def _dedoublonner(paiements: list[dict]) -> list[dict]:
+# Reversements du prestataire carte (Payzen / Lyra) vers Qonto : déjà comptés via la notification Payzen.
+_REVERSEMENT_CARTE = re.compile(r"lyra|payzen", re.I)
+
+
+def _encaissements(paiements: list[dict]) -> list[dict]:
+    """Règle : Payzen = paiements carte (comptés) ; Qonto = crédits hors reversements Payzen/Lyra.
+    Une même notification lue deux fois (même origine, même ref) ne compte qu'une fois."""
     vus, out = set(), []
     for p in paiements:
-        cle = (p["date"], round(float(p["montant"]), 2), str(p.get("client", "")).strip().lower())
-        if cle not in vus:
+        if p.get("origine") == "qonto" and _REVERSEMENT_CARTE.search(str(p.get("contrepartie", ""))):
+            continue
+        ref = p.get("ref")
+        if ref:
+            cle = (p.get("origine"), str(ref))
+            if cle in vus:
+                continue
             vus.add(cle)
-            out.append(p)
+        out.append(p)
     return out
 
 
@@ -70,7 +82,7 @@ def _somme(lignes, champ, debut: date, fin: date) -> float:
 
 
 def bloc_argent(factures: list[dict], paiements: list[dict], aujourd_hui: date) -> dict:
-    paiements = _dedoublonner(paiements)
+    paiements = _encaissements(paiements)
     debut_mois = aujourd_hui.replace(day=1)
     nom, debut_phase, fin_phase = phase(aujourd_hui)
     return {

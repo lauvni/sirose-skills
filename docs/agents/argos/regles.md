@@ -41,10 +41,14 @@ Pas de correspondance sûre → `lien_vers: null`. Ne jamais deviner.
 ARGOS **ne calcule rien** : il écrit les données brutes dans `argent_entree.json` et le script fait le calcul (dédoublonnage, mois en cours, cumul de phase, objectifs du BP).
 ```json
 {"factures": [{"date": "AAAA-MM-JJ", "montant_ht": 0.0, "client": "…", "ref": "F-…"}],
- "paiements": [{"date": "AAAA-MM-JJ", "montant": 0.0, "client": "…", "origine": "payzen|qonto"}]}
+ "paiements": [{"date": "AAAA-MM-JJ", "montant": 0.0, "client": "…", "origine": "payzen|qonto",
+                "ref": "n° de transaction ou null", "contrepartie": "émetteur du virement (Qonto) ou null"}]}
 ```
 - Factures : factures Drive de la phase en cours (date et montant HT lus dans le document).
 - Paiements : mails de `do_not_reply@payzen.eu` et `hello@qonto.com` (paiements **reçus** uniquement) depuis le début de la phase en cours.
+  - **Payzen** = paiements carte des clients : `ref` = numéro de transaction Payzen.
+  - **Qonto** = crédits sur le compte : `contrepartie` = émetteur du virement **tel qu'écrit dans le mail** (ex. « LYRA NETWORK »). Le script **ignore** les reversements Payzen/Lyra (déjà comptés côté Payzen) ; ne les filtre pas toi-même, recopie fidèlement.
+  - Une même notification relue deux fois porte la même `ref` : le script ne la compte qu'une fois. Sans référence lisible, `ref: null`.
 - Une source illisible → `"argent": {"etat": "indisponible", "depuis": null, "elements": []}` dans `dashboard.json` et **ne pas** passer `--argent`.
 
 ## 5. Exclusions (rappel, sans exception)
@@ -53,11 +57,12 @@ Dossier Drive « Pièces associés » · pièces d'identité · RIB / IBAN · CV
 ## 6. Exécution (procédure de la tâche planifiée)
 Netlify : site `SITE_ID_A_RENSEIGNER` · URL `https://SITE_A_RENSEIGNER.netlify.app` (renseignés à la mise en service).
 1. Lire les sources (§1) ; en cas d'échec d'une source, marquer le bloc concerné `indisponible`.
-2. Écrire `/tmp/argos/dashboard.json` (schéma v1, `genere_le` = maintenant, `prochaine_maj` = prochain créneau 06:53 / 12:53 / 18:53, heure de La Réunion, `+04:00`) et `/tmp/argos/argent_entree.json`.
+2. Écrire `/tmp/argos/dashboard.json` (schéma v1, `genere_le` = maintenant, `prochaine_maj` = prochain créneau 06:53 / 12:53 / 18:53 ; **toujours avec le fuseau `+04:00`**, sinon la publication est refusée) et `/tmp/argos/argent_entree.json`.
 3. Depuis la racine du dépôt :
    ```bash
    python3 -m tablette.publier.publier /tmp/argos/dashboard.json --argent /tmp/argos/argent_entree.json --precedent-url https://SITE_A_RENSEIGNER.netlify.app/data.enc --sortie dist/
    ```
    Code de sortie 2 → lire l'erreur, corriger `dashboard.json` (jamais en supprimant le garde-fou) et relancer.
 4. Déployer le dossier `dist/` sur le site Netlify ci-dessus (connecteur Netlify `deploy-site` avec ce siteId, ou `netlify deploy --prod --dir dist --site <siteId>`).
-5. Répondre par le résumé de 3 lignes. Ne rien commiter.
+5. Supprimer `/tmp/argos/` (aucune copie en clair ne doit rester).
+6. Répondre par le résumé de 3 lignes. Ne rien commiter.

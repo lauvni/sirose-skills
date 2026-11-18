@@ -19,6 +19,7 @@ from tablette.publier.schema import valider
 REUNION = timezone(timedelta(hours=4))
 RACINE = Path(__file__).resolve().parents[1]
 FICHIERS_FIXES = ("index.html", "app.js", "netlify.toml")
+LONGUEUR_MIN = 14
 
 
 def _precedent(url: str, pin: str) -> dict | None:
@@ -41,6 +42,10 @@ def main(argv=None) -> int:
     pin = os.environ.get("SIROSE_DASH_PIN", "")
     if not pin:
         print("erreur : variable SIROSE_DASH_PIN absente", file=sys.stderr)
+        return 2
+    if len(pin) < LONGUEUR_MIN or pin.isdigit():
+        print(f"erreur : SIROSE_DASH_PIN trop faible — utiliser une phrase de passe d'au moins "
+              f"{LONGUEUR_MIN} caractères, pas uniquement des chiffres (data.enc est public)", file=sys.stderr)
         return 2
 
     d = json.loads(Path(args.entree).read_text(encoding="utf-8"))

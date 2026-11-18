@@ -13,9 +13,9 @@ _SENSIBLE = [
 
 
 def _date_ok(v) -> bool:
+    """Date-heure ISO 8601 avec fuseau (sinon la tablette l'interprète dans son propre fuseau)."""
     try:
-        datetime.fromisoformat(v)
-        return True
+        return datetime.fromisoformat(v).tzinfo is not None
     except (TypeError, ValueError):
         return False
 

@@ -131,3 +131,57 @@ def test_huit_mails_visibles_en_1280x800(page, serveur):
         items = page.locator(f"#bloc-{bloc} li")
         dernier = items.nth(items.count() - 1).bounding_box()
         assert dernier["y"] + dernier["height"] <= boite["y"] + boite["height"], bloc
+
+
+
+# ---- Correctifs de la relecture -----------------------------------------
+
+def test_clavier_non_numerique(page, serveur):
+    page.goto(serveur.url)
+    assert page.get_attribute("#champ-pin", "inputmode") is None
+
+
+@pytest.mark.parametrize("donnees", [EXEMPLE])
+def test_requete_bloquee_declenche_hors_ligne(page, serveur):
+    ouvrir_exemple(page, serveur)
+    page.route("**/data.enc*", lambda route: None)  # ne répond jamais
+    page.evaluate("SIROSE.DELAI_RESEAU = 500; SIROSE.rafraichir()")
+    page.wait_for_function("document.getElementById('bandeau').textContent.indexOf('hors ligne depuis') >= 0", timeout=5000)
+
+
+def test_demarrage_hors_ligne_une_seule_relance(page, serveur):
+    serveur.retirer()
+    requetes = []
+    page.on("request", lambda r: requetes.append(r.url) if "data.enc" in r.url else None)
+    page.clock.install(time="2026-11-18T07:00:00+04:00")
+    page.goto(serveur.url)
+    page.evaluate(f"localStorage.setItem('sirose_pin', '{PIN}')")
+    page.reload()
+    for _ in range(46 * 4):  # 46 min par pas de 15 s, en laissant le réseau répondre
+        page.clock.run_for(15 * 1000)
+        page.wait_for_timeout(20)
+    assert len(requetes) <= 55, len(requetes)
+
+
+def test_relance_auto_n_efface_pas_la_saisie(page, serveur):
+    serveur.retirer()
+    page.clock.install(time="2026-11-18T07:00:00+04:00")
+    page.goto(serveur.url)
+    page.evaluate(f"localStorage.setItem('sirose_pin', '{PIN}')")
+    page.reload()
+    page.clock.run_for(5000)
+    page.fill("#champ-pin", "en-cours-de-saisie")
+    for _ in range(12):
+        page.clock.run_for(15 * 1000)
+        page.wait_for_timeout(20)
+    assert page.input_value("#champ-pin") == "en-cours-de-saisie"
+
+
+@pytest.mark.parametrize("donnees", [{"v": 1}])
+def test_enveloppe_illisible_garde_le_pin(page, serveur):
+    page.goto(serveur.url)
+    page.evaluate(f"localStorage.setItem('sirose_pin', '{PIN}')")
+    (serveur.dossier / "data.enc").write_text('{"v": 1}')
+    page.reload()
+    page.wait_for_function("document.getElementById('message-pin').textContent === 'Données illisibles'", timeout=10000)
+    assert page.evaluate("localStorage.getItem('sirose_pin')") == PIN

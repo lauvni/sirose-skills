@@ -31,17 +31,25 @@
   }
 
   /* Déchiffre l'enveloppe {v, iter, sel, iv, ct}. ok(objet) ou ko('pin' | 'format'). */
+  function enveloppeValide(env) {
+    return !!env && env.v === 1 && typeof env.iter === 'number' &&
+      typeof env.sel === 'string' && typeof env.iv === 'string' && typeof env.ct === 'string';
+  }
+
   S.dechiffrer = function (env, pin, ok, ko) {
     var subtle = window.crypto && window.crypto.subtle;
     if (!subtle) { ko('crypto'); return; }
+    if (!enveloppeValide(env)) { ko('format'); return; }
+    var sel, iv, ct;
+    try { sel = b64VersOctets(env.sel); iv = b64VersOctets(env.iv); ct = b64VersOctets(env.ct); } catch (e) { ko('format'); return; }
     subtle.importKey('raw', utf8(pin), { name: 'PBKDF2' }, false, ['deriveKey'])
       .then(function (base) {
         return subtle.deriveKey(
-          { name: 'PBKDF2', hash: 'SHA-256', salt: b64VersOctets(env.sel), iterations: env.iter },
+          { name: 'PBKDF2', hash: 'SHA-256', salt: sel, iterations: env.iter },
           base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
       })
       .then(function (cle) {
-        return subtle.decrypt({ name: 'AES-GCM', iv: b64VersOctets(env.iv) }, cle, b64VersOctets(env.ct));
+        return subtle.decrypt({ name: 'AES-GCM', iv: iv }, cle, ct);
       })
       .then(function (clair) {
         var objet;
@@ -55,9 +63,15 @@
   function charger(ok, ko) {
     var xhr = new XMLHttpRequest();
     compteur += 1;
+    var fini = false;
+    function echec() { if (!fini) { fini = true; ko('reseau'); } }
     xhr.open('GET', URL_DONNEES + '?t=' + new Date().getTime() + '-' + compteur, true);
+    xhr.timeout = S.DELAI_RESEAU;
+    xhr.ontimeout = echec;
     xhr.onreadystatechange = function () {
-      if (xhr.readyState !== 4) { return; }
+      if (xhr.readyState !== 4 || fini) { return; }
+      if (xhr.status === 0) { return; } /* timeout ou coupure : géré par ontimeout / onerror */
+      fini = true;
       if (xhr.status === 200) {
         var env;
         try { env = JSON.parse(xhr.responseText); } catch (e) { ko('reseau'); return; }
@@ -66,19 +80,28 @@
         ko('reseau');
       }
     };
+    xhr.onerror = echec;
     xhr.send();
   }
 
-  function montrerPin(message) {
+  /* effacer : vide le champ (après un code refusé), jamais lors d'une relance automatique. */
+  function montrerPin(message, effacer) {
     $('tableau').hidden = true;
     $('ecran-pin').hidden = false;
     $('message-pin').textContent = message || '';
-    $('champ-pin').value = '';
+    if (effacer) { $('champ-pin').value = ''; }
+  }
+
+  var relance = null;
+  function planifierRelance() {
+    if (relance) { window.clearTimeout(relance); }
+    relance = window.setTimeout(function () { relance = null; S.rafraichir(); }, 60000);
   }
 
   var DECALAGE_REUNION = 4 * 3600 * 1000; /* UTC+4, pas d'heure d'été */
   var PERIME_APRES = 8 * 3600 * 1000;
   var RAFRAICHISSEMENT = 15 * 60 * 1000;
+  S.DELAI_RESEAU = 30000;
   var JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
   var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
   var SOURCES = { gmail: 'G', notion: 'N', drive: 'D', registre: 'R' };
@@ -208,8 +231,9 @@
         ecrirePin(pin);
         afficher(d);
       }, function (raison) {
-        if (raison === 'pin') { oublierPin(); montrerPin('Code incorrect'); }
-        else { montrerPin('Données illisibles'); }
+        if (raison === 'pin') { oublierPin(); montrerPin('Code incorrect', true); }
+        else if (raison === 'crypto') { montrerPin('HTTPS requis'); }
+        else { montrerPin('Données illisibles'); planifierRelance(); }
       });
     }, function () {
       if (S.derniere) {
@@ -218,7 +242,7 @@
         return;
       }
       montrerPin('Hors ligne — nouvel essai dans 1 min');
-      window.setTimeout(function () { var p = lirePin(); if (p) { ouvrir(p); } }, 60000);
+      planifierRelance();
     });
   }
 
@@ -229,7 +253,7 @@
     };
     $('champ-pin').onkeydown = function (e) { if (e.keyCode === 13) { $('bouton-pin').onclick(); } };
     var pin = lirePin();
-    if (pin) { ouvrir(pin); } else { montrerPin(''); }
+    if (pin) { ouvrir(pin); } else { montrerPin('', true); }
     window.setInterval(S.rafraichir, RAFRAICHISSEMENT);
   };
 

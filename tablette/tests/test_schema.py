@@ -45,3 +45,9 @@ def test_numero_secu_refuse():
     d = copy.deepcopy(EXEMPLE)
     d["blocs"]["priorites"]["elements"][0]["texte"] = "Dossier 1 85 05 78 006 084 36"
     assert any("donnée sensible" in e for e in valider(d))
+
+
+def test_date_sans_fuseau_refusee():
+    d = copy.deepcopy(EXEMPLE)
+    d["genere_le"] = "2026-11-18T06:53:00"
+    assert any("genere_le" in e for e in valider(d))

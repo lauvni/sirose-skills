@@ -11,7 +11,7 @@ import pytest
 from tablette.publier.crypto import chiffrer
 
 RACINE = Path(__file__).resolve().parents[1]
-PIN = "4821"
+PIN = "vanille-koso-margouillat-2026"
 MINIMAL = {"schema": 1, "genere_le": "2026-11-18T07:30:00+04:00"}
 
 

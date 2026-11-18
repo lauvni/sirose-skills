@@ -18,18 +18,29 @@ def test_phases():
     assert phase(date(2027, 8, 1))[0] == "Phase 3"
 
 
-def test_doublon_payzen_qonto_compte_une_fois():
+def test_reversement_payzen_sur_qonto_non_compte():
+    """Payzen notifie le paiement client ; Qonto notifie 2 jours plus tard le reversement net (LYRA)."""
     p = [
-        {"date": "2026-11-17", "montant": 187.0, "client": "Villa Naya", "origine": "payzen"},
-        {"date": "2026-11-17", "montant": 187.0, "client": "villa naya", "origine": "qonto"},
+        {"date": "2026-11-17", "montant": 187.0, "client": "Villa Naya", "origine": "payzen", "ref": "PZ-1"},
+        {"date": "2026-11-19", "montant": 185.40, "client": "", "origine": "qonto", "contrepartie": "LYRA NETWORK"},
     ]
-    assert bloc_argent([], p, date(2026, 11, 18))["mois"]["encaisse"] == 187.0
+    assert bloc_argent([], p, date(2026, 11, 20))["mois"]["encaisse"] == 187.0
 
 
-def test_deux_paiements_distincts_meme_jour_comptes():
+def test_virement_client_sur_qonto_compte():
+    p = [{"date": "2026-11-10", "montant": 54.0, "client": "Asso", "origine": "qonto", "contrepartie": "ASSO KISANOU"}]
+    assert bloc_argent([], p, date(2026, 11, 20))["mois"]["encaisse"] == 54.0
+
+
+def test_meme_notification_lue_deux_fois_comptee_une_fois():
+    n = {"date": "2026-11-17", "montant": 187.0, "client": "Villa Naya", "origine": "payzen", "ref": "PZ-1"}
+    assert bloc_argent([], [n, dict(n)], date(2026, 11, 18))["mois"]["encaisse"] == 187.0
+
+
+def test_deux_vrais_paiements_identiques_comptes():
     p = [
-        {"date": "2026-11-17", "montant": 50.0, "client": "A", "origine": "payzen"},
-        {"date": "2026-11-17", "montant": 50.0, "client": "B", "origine": "payzen"},
+        {"date": "2026-11-17", "montant": 50.0, "client": "A", "origine": "payzen", "ref": "PZ-1"},
+        {"date": "2026-11-17", "montant": 50.0, "client": "A", "origine": "payzen", "ref": "PZ-2"},
     ]
     assert bloc_argent([], p, date(2026, 11, 18))["mois"]["encaisse"] == 100.0
 
