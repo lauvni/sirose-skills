@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Sir'Ose — Pilotage</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #12161c; color: #e9edf2; font-family: "Roboto", "Droid Sans", sans-serif; font-size: 18px; }
+  [hidden] { display: none !important; }
+  #ecran-pin { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; height: 100vh; }
+  #ecran-pin h1 { font-size: 32px; font-weight: 500; margin: 0 0 24px; letter-spacing: 1px; }
+  #champ-pin { font-size: 32px; width: 220px; text-align: center; padding: 10px; border: 2px solid #3a4452; border-radius: 8px; background: #1c222b; color: #fff; }
+  #bouton-pin { margin-top: 16px; font-size: 22px; padding: 10px 40px; border: 0; border-radius: 8px; background: #e0a43a; color: #12161c; font-weight: 700; }
+  #message-pin { margin-top: 16px; min-height: 26px; color: #ff7a6b; font-size: 20px; }
+</style>
+</head>
+<body>
+<div id="ecran-pin" hidden>
+  <h1>SIR'OSE</h1>
+  <input id="champ-pin" type="password" inputmode="numeric" autocomplete="off" placeholder="Code">
+  <button id="bouton-pin" type="button">Ouvrir</button>
+  <div id="message-pin"></div>
+</div>
+<div id="tableau" hidden>
+  <div id="horodatage"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
