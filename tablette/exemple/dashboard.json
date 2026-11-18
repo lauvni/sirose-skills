@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "genere_le": "2026-11-18T06:53:00+04:00",
+  "prochaine_maj": "2026-11-18T12:53:00+04:00",
+  "blocs": {
+    "priorites": {
+      "etat": "ok", "depuis": null,
+      "elements": [
+        {"texte": "Répondre au Client Exemple A sur sa commande de décembre", "source": "gmail", "lien_vers": "Client Exemple A (client)", "urgence": "haute", "echeance": null},
+        {"texte": "Finaliser la pièce manquante du dossier Financeur Exemple", "source": "notion", "lien_vers": "Financeur Exemple (financeur)", "urgence": "moyenne", "echeance": "2026-11-21"},
+        {"texte": "Préparer la déclaration de TVA", "source": "registre", "lien_vers": null, "urgence": "moyenne", "echeance": "2026-11-30"},
+        {"texte": "Priorité de trop (ne doit pas s'afficher)", "source": "notion", "lien_vers": null, "urgence": "basse", "echeance": null}
+      ]
+    },
+    "taches": {
+      "etat": "ok", "depuis": null,
+      "elements": [
+        {"texte": "Envoyer le devis au Client Exemple B", "source": "notion", "lien_vers": "Client Exemple B (prospect)", "urgence": "haute", "echeance": "2026-11-17"},
+        {"texte": "Déclaration de TVA mensuelle", "source": "registre", "lien_vers": null, "urgence": "moyenne", "echeance": "2026-11-30"}
+      ]
+    },
+    "mails": {
+      "etat": "ok", "depuis": null,
+      "elements": [
+        {"texte": "Client Exemple A — Commande pour les fêtes", "source": "gmail", "lien_vers": "Client Exemple A (client)", "urgence": "haute", "echeance": null},
+        {"texte": "Administration Exemple — Document à fournir", "source": "gmail", "lien_vers": null, "urgence": "moyenne", "echeance": "2026-11-25"},
+        {"texte": "Mail 3", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail 4", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail 5", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail 6", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail 7", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail 8", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Mail de trop (ne doit pas s'afficher)", "source": "gmail", "lien_vers": null, "urgence": "basse", "echeance": null}
+      ]
+    },
+    "pipeline": {
+      "etat": "ok", "depuis": null,
+      "elements": [
+        {"texte": "Clients : 2 actifs · 6 prospects · 1 en négociation", "source": "notion", "lien_vers": null, "urgence": "basse", "echeance": null},
+        {"texte": "Facture F-EX-001 envoyée au Client Exemple A", "source": "drive", "lien_vers": "Client Exemple A (client)", "urgence": "basse", "echeance": null}
+      ]
+    },
+    "argent": {
+      "etat": "ok", "depuis": null,
+      "elements": [],
+      "mois": {"libelle": "novembre 2026", "facture": 450.0, "encaisse": 187.0, "objectif": 1500},
+      "phase": {"nom": "Phase 1", "facture": 900.0, "encaisse": 437.5, "objectif": 3400}
+    }
+  }
+}

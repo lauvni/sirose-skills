@@ -50,9 +50,12 @@
       }, function () { ko('pin'); });
   };
 
+  var compteur = 0;
+
   function charger(ok, ko) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', URL_DONNEES + '?t=' + new Date().getTime(), true);
+    compteur += 1;
+    xhr.open('GET', URL_DONNEES + '?t=' + new Date().getTime() + '-' + compteur, true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState !== 4) { return; }
       if (xhr.status === 200) {
@@ -73,12 +76,127 @@
     $('champ-pin').value = '';
   }
 
+  var DECALAGE_REUNION = 4 * 3600 * 1000; /* UTC+4, pas d'heure d'été */
+  var PERIME_APRES = 8 * 3600 * 1000;
+  var RAFRAICHISSEMENT = 15 * 60 * 1000;
+  var JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+  var SOURCES = { gmail: 'G', notion: 'N', drive: 'D', registre: 'R' };
+  var BLOCS = [
+    { id: 'priorites', titre: 'Priorités du jour', max: 3 },
+    { id: 'taches', titre: 'Tâches & échéances', max: 8 },
+    { id: 'mails', titre: 'Mails à traiter', max: 8 },
+    { id: 'pipeline', titre: 'Pipeline', max: 6 }
+  ];
+
+  function deux(n) { return (n < 10 ? '0' : '') + n; }
+
+  /* Heure de La Réunion, quel que soit le fuseau de la tablette. */
+  function reunion(ms) { return new Date(ms + DECALAGE_REUNION); }
+  function hhmm(ms) { var r = reunion(ms); return deux(r.getUTCHours()) + ':' + deux(r.getUTCMinutes()); }
+  function jjmm(ms) { var r = reunion(ms); return deux(r.getUTCDate()) + '/' + deux(r.getUTCMonth() + 1); }
+  function iso(ms) { return Date.parse(ms); }
+
+  function euros(n) {
+    var entier = String(Math.round(n));
+    var out = '';
+    while (entier.length > 3) { out = ' ' + entier.slice(-3) + out; entier = entier.slice(0, -3); }
+    return entier + out + ' €';
+  }
+
+  function el(tag, classe, texte) {
+    var e = document.createElement(tag);
+    if (classe) { e.className = classe; }
+    if (texte !== undefined && texte !== null) { e.textContent = texte; }
+    return e;
+  }
+
+  function vider(e) { while (e.firstChild) { e.removeChild(e.firstChild); } }
+
+  function enteteBloc(conteneur, titre, bloc) {
+    vider(conteneur);
+    conteneur.appendChild(el('h2', null, titre));
+    if (bloc && bloc.etat === 'indisponible') {
+      var quand = bloc.depuis ? ' à ' + hhmm(iso(bloc.depuis)) : '';
+      conteneur.appendChild(el('div', 'indispo', '⚠ source indisponible' + quand + ' — dernières données connues'));
+    }
+  }
+
+  function rendreListe(def, bloc) {
+    var c = $('bloc-' + def.id);
+    enteteBloc(c, def.titre, bloc);
+    var elements = (bloc && bloc.elements) || [];
+    if (!elements.length) { c.appendChild(el('div', 'vide', 'Rien à signaler')); return; }
+    var ul = el('ul');
+    for (var i = 0; i < elements.length && i < def.max; i++) {
+      var x = elements[i];
+      var li = el('li', 'u-' + (x.urgence || 'basse'));
+      li.appendChild(el('span', 'src', SOURCES[x.source] || '?'));
+      li.appendChild(document.createTextNode(x.texte));
+      if (x.lien_vers) { li.appendChild(el('span', 'lien', '↔ ' + x.lien_vers)); }
+      if (x.echeance) {
+        var p = x.echeance.split('-');
+        li.appendChild(el('span', 'ech', '⏰ ' + p[2] + '/' + p[1]));
+      }
+      ul.appendChild(li);
+    }
+    c.appendChild(ul);
+  }
+
+  function ligneArgent(c, titre, v) {
+    c.appendChild(el('div', 'sous', titre));
+    c.appendChild(el('div', 'chiffre', euros(v.encaisse) + ' encaissés / ' + euros(v.objectif)));
+    var barre = el('div', 'barre');
+    var rempli = el('div');
+    var pct = v.objectif > 0 ? Math.min(100, Math.round(100 * v.encaisse / v.objectif)) : 0;
+    rempli.style.width = pct + '%';
+    barre.appendChild(rempli);
+    c.appendChild(barre);
+    c.appendChild(el('div', 'sous', 'Facturé : ' + euros(v.facture) + ' · ' + pct + ' % de l\'objectif'));
+  }
+
+  function rendreArgent(bloc) {
+    var c = $('bloc-argent');
+    enteteBloc(c, 'Argent', bloc);
+    if (!bloc || !bloc.mois) { c.appendChild(el('div', 'vide', 'Pas encore de données')); return; }
+    ligneArgent(c, 'Mois de ' + bloc.mois.libelle, bloc.mois);
+    if (bloc.phase) { ligneArgent(c, bloc.phase.nom + ' (cumul)', bloc.phase); }
+  }
+
+  function bandeau(texte) {
+    var b = $('bandeau');
+    b.textContent = texte || '';
+    b.hidden = !texte;
+  }
+
+  function verifierFraicheur() {
+    var d = S.derniere;
+    if (!d) { return; }
+    var genere = iso(d.genere_le);
+    if (S.horsLigneDepuis) {
+      bandeau('⚠ hors ligne depuis ' + hhmm(S.horsLigneDepuis) + ' — affichage des données du ' + jjmm(genere) + ' ' + hhmm(genere));
+    } else if (Date.now() - genere > PERIME_APRES) {
+      bandeau('⚠ données du ' + jjmm(genere) + ' ' + hhmm(genere) + ' — ARGOS n\'a pas mis à jour depuis plus de 8 h');
+    } else {
+      bandeau('');
+    }
+  }
+
   S.rendre = function (d) {
-    $('horodatage').textContent = 'màj ' + d.genere_le;
+    var maintenant = reunion(Date.now());
+    $('date-du-jour').textContent = JOURS[maintenant.getUTCDay()] + ' ' + maintenant.getUTCDate() + ' ' + MOIS[maintenant.getUTCMonth()];
+    var h = 'màj ' + hhmm(iso(d.genere_le));
+    if (d.prochaine_maj) { h += ' · prochaine ' + hhmm(iso(d.prochaine_maj)); }
+    $('horodatage').textContent = h;
+    var blocs = d.blocs || {};
+    for (var i = 0; i < BLOCS.length; i++) { rendreListe(BLOCS[i], blocs[BLOCS[i].id]); }
+    rendreArgent(blocs.argent);
+    verifierFraicheur();
   };
 
   function afficher(d) {
     S.derniere = d;
+    S.horsLigneDepuis = null;
     $('ecran-pin').hidden = true;
     $('tableau').hidden = false;
     S.rendre(d);
@@ -94,6 +212,11 @@
         else { montrerPin('Données illisibles'); }
       });
     }, function () {
+      if (S.derniere) {
+        if (!S.horsLigneDepuis) { S.horsLigneDepuis = Date.now(); }
+        verifierFraicheur();
+        return;
+      }
       montrerPin('Hors ligne — nouvel essai dans 1 min');
       window.setTimeout(function () { var p = lirePin(); if (p) { ouvrir(p); } }, 60000);
     });
@@ -107,6 +230,13 @@
     $('champ-pin').onkeydown = function (e) { if (e.keyCode === 13) { $('bouton-pin').onclick(); } };
     var pin = lirePin();
     if (pin) { ouvrir(pin); } else { montrerPin(''); }
+    window.setInterval(S.rafraichir, RAFRAICHISSEMENT);
+  };
+
+  /* Recharge data.enc avec le PIN mémorisé ; en cas d'échec réseau, garde l'affichage. */
+  S.rafraichir = function () {
+    var pin = lirePin();
+    if (pin) { ouvrir(pin); }
   };
 
   window.addEventListener('load', S.demarrer);

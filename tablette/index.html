@@ -14,6 +14,32 @@
   #champ-pin { font-size: 32px; width: 220px; text-align: center; padding: 10px; border: 2px solid #3a4452; border-radius: 8px; background: #1c222b; color: #fff; }
   #bouton-pin { margin-top: 16px; font-size: 22px; padding: 10px 40px; border: 0; border-radius: 8px; background: #e0a43a; color: #12161c; font-weight: 700; }
   #message-pin { margin-top: 16px; min-height: 26px; color: #ff7a6b; font-size: 20px; }
+  #tableau { padding: 14px 18px; box-sizing: border-box; height: 100vh; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; }
+  .entete { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: baseline; align-items: baseline; margin-bottom: 8px; }
+  .marque { font-size: 26px; font-weight: 700; letter-spacing: 2px; color: #e0a43a; }
+  #date-du-jour { font-size: 22px; margin-left: 14px; }
+  #horodatage { font-size: 18px; color: #9aa6b4; }
+  #bandeau { background: #7a2e22; color: #fff; padding: 6px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 20px; }
+  .ligne { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-flex: 1; flex: 1; min-height: 0; }
+  .bloc { background: #1c222b; border-radius: 10px; padding: 10px 14px; margin: 5px; overflow: hidden; -webkit-flex: 1; flex: 1; }
+  #bloc-priorites { -webkit-flex: none; flex: none; background: #22303f; }
+  .bloc h2 { margin: 0 0 6px; font-size: 18px; font-weight: 700; letter-spacing: 1px; color: #9aa6b4; text-transform: uppercase; }
+  .bloc ul { list-style: none; margin: 0; padding: 0; }
+  .bloc li { padding: 4px 0 4px 10px; border-left: 4px solid #3a4452; margin-bottom: 4px; line-height: 1.25; }
+  #bloc-priorites li { font-size: 21px; }
+  .ligne .bloc li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-top: 2px; padding-bottom: 2px; margin-bottom: 3px; }
+  .u-haute { border-left-color: #ff6b57 !important; }
+  .u-moyenne { border-left-color: #e0a43a !important; }
+  .u-basse { border-left-color: #4f8a6e !important; }
+  .src { display: inline-block; min-width: 20px; text-align: center; font-size: 14px; font-weight: 700; border-radius: 4px; padding: 0 4px; margin-right: 8px; background: #3a4452; color: #e9edf2; }
+  .lien { color: #8fc1ff; margin-left: 8px; }
+  .ech { color: #e0a43a; margin-left: 8px; font-size: 16px; }
+  .indispo { color: #ff9d8f; font-size: 16px; margin-bottom: 4px; }
+  .vide { color: #6c7886; font-style: italic; }
+  .chiffre { font-size: 30px; font-weight: 700; }
+  .barre { height: 14px; background: #2b3440; border-radius: 7px; margin: 6px 0 10px; overflow: hidden; }
+  .barre div { height: 14px; background: #4f8a6e; }
+  .sous { color: #9aa6b4; font-size: 18px; }
 </style>
 </head>
 <body>
@@ -24,7 +50,11 @@
   <div id="message-pin"></div>
 </div>
 <div id="tableau" hidden>
-  <div id="horodatage"></div>
+  <div class="entete"><div><span class="marque">SIR'OSE</span><span id="date-du-jour"></span></div><div id="horodatage"></div></div>
+  <div id="bandeau" hidden></div>
+  <div class="bloc" id="bloc-priorites"></div>
+  <div class="ligne"><div class="bloc" id="bloc-taches"></div><div class="bloc" id="bloc-mails"></div></div>
+  <div class="ligne"><div class="bloc" id="bloc-pipeline"></div><div class="bloc" id="bloc-argent"></div></div>
 </div>
 <script src="app.js"></script>
 </body>
