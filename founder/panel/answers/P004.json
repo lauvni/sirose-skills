@@ -1,0 +1,13 @@
+{
+  "id": "P004",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "23 euros a litre is two to three times what I pay for Monin, and if I want something local and homemade I make my own syrups and rhums arrangés behind the bar for almost nothing. I might ask for the free sample out of curiosity, but I'm not adding a supplier for that price.",
+  "objection": "Price, plus supply: Monin comes with the rest of my order and tastes the same every time. A small fermented producer, I don't know if it changes from batch to batch or if they'll run out in the middle of the season.",
+  "would_change_my_mind": "A price close to 12-14 euros a litre with steady delivery guaranteed, and a tasting that shows me something I really can't make myself, that my customers ask for again.",
+  "price_too_cheap": 5,
+  "price_cheap": 9,
+  "price_expensive": 14,
+  "price_too_expensive": 19
+}

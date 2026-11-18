@@ -1,0 +1,13 @@
+{
+  "id": "P011",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "At 23 euros a litre it's at least twice what I pay for a Monin and five times what my own house syrups cost me in fruit and sugar. I'll ask for the free sample out of curiosity, but I can't put that cost into every cocktail without raising the menu price.",
+  "objection": "The cost per cocktail: I can make a fruit syrup or a rhum arrangé myself for a few euros a litre, so I don't see what justifies paying 23.",
+  "would_change_my_mind": "A price around 12 to 14 euros a litre, or a tasting that shows guests will actually pay more for a signature cocktail built on it.",
+  "price_too_cheap": 5,
+  "price_cheap": 9,
+  "price_expensive": 15,
+  "price_too_expensive": 20
+}

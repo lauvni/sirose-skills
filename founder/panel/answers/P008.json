@@ -1,0 +1,13 @@
+{
+  "id": "P008",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "I'd ask for the free sample, because a fermented, less sweet base is exactly what I'm hunting for my no-alcohol list. But at 23 euros a litre I can't swap it in for Monin on mocktails I sell at 7 or 8 euros. That would eat my margin, so this month nothing goes on the order.",
+  "objection": "23 euros a litre is two to three times what I pay for Monin, and I don't know yet how many drinks I get out of a litre or whether it holds once it's open behind a hot bar.",
+  "would_change_my_mind": "If the sample shows a litre makes clearly more drinks than Monin (smaller dose per glass), so the cost per mocktail ends up close to what I pay now, I'd put one signature drink on the menu with it.",
+  "price_too_cheap": 6,
+  "price_cheap": 10,
+  "price_expensive": 15,
+  "price_too_expensive": 20
+}

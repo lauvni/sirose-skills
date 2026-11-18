@@ -1,0 +1,13 @@
+{
+  "id": "P012",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "At 23 euros a litre I pay two to three times what Monin costs me, and my customers at a snack bar won't pay more for a cocktail because the syrup is fermented. I'd ask for the free sample out of curiosity, but I won't put it on my order.",
+  "objection": "It raises my cost per cocktail without letting me raise the menu price. A 4-star hotel can absorb that, my bar can't.",
+  "would_change_my_mind": "A price close to 12-14 euros a litre, or proof from a tasting that a signature drink with it sells at a higher price and my regulars actually order it.",
+  "price_too_cheap": 5,
+  "price_cheap": 9,
+  "price_expensive": 14,
+  "price_too_expensive": 19
+}

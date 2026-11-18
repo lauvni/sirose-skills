@@ -1,0 +1,13 @@
+{
+  "id": "P005",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "quality",
+  "reason": "I'd ask for the free sample, sure, but I'm not putting a 23-euro litre on the list before I've tasted it in a drink and know how much sugar is actually in it. My guests order a virgin mojito or a ti-punch style thing, so a 'Koso' has to earn its spot before the next quarterly cost review, not after.",
+  "objection": "At 23 euros a litre it costs two or three times my usual syrups, and I don't know yet if it's really less sweet or if guests will even order something with a name they've never heard of.",
+  "would_change_my_mind": "The sample tasting well in two or three of my own mocktails, plus the sugar per litre on paper, so I can show the owner it's a healthier base that sells at a premium.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 26
+}

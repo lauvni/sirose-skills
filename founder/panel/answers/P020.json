@@ -1,0 +1,13 @@
+{
+  "id": "P020",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I'd ask for the free sample, sure, but I can't just order it: purchasing needs a listed supplier with proper invoices, labels and allergen sheets, and nothing here tells me that's in place. And with peak season starting in December I'm not putting a new small supplier on my menu now.",
+  "objection": "Is this little producer reliable enough to deliver every week through December to February without running out, with the paperwork my hotel demands? On top of that, managing returnable deposit bottles is one more thing for my team to track, and 23 euros a litre is double what I pay for standard syrups.",
+  "would_change_my_mind": "A complete supplier pack (technical and allergen sheets, compliant labels, invoicing that fits our purchasing system) plus a guaranteed delivery schedule for peak season, and the option of a non-returnable bottle.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 26
+}

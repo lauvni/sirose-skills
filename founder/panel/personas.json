@@ -1,0 +1,222 @@
+[
+ {
+  "id": "P001",
+  "name": "Sara",
+  "age": 43,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 31000,
+  "behaviour": "Brand-standard hotel buyer",
+  "behaviour_how": "Has to go through purchasing, needs invoices, labels, allergen sheets and a reliable supplier.",
+  "objection": "I can make my own syrups and rhums arrangés",
+  "habit": "you follow other Réunion bartenders on Instagram"
+ },
+ {
+  "id": "P002",
+  "name": "Pablo",
+  "age": 36,
+  "segment": "Owner-operator of a small bar or snack bar who orders everything himself (income in euros)",
+  "income": 32000,
+  "behaviour": "Monin loyalist",
+  "behaviour_how": "Orders Monin through the usual distributor with the rest of the stock; values consistency and never running out.",
+  "objection": "It is fermented: how long does it keep once opened, and does it need the fridge?",
+  "habit": "you already buy rum from Réunion distilleries and syrups from one main distributor"
+ },
+ {
+  "id": "P003",
+  "name": "Elle",
+  "age": 31,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 34000,
+  "behaviour": "Trend chaser",
+  "behaviour_how": "Changes the signature cocktails every season and posts them on Instagram.",
+  "objection": "Is it alcoholic? I need to know for the no-alcohol menu and the paperwork",
+  "habit": "you work evenings and weekends, peak season is December to February and July-August"
+ },
+ {
+  "id": "P004",
+  "name": "Hugo",
+  "age": 44,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 26000,
+  "behaviour": "Monin loyalist",
+  "behaviour_how": "Orders Monin through the usual distributor with the rest of the stock; values consistency and never running out.",
+  "objection": "I can make my own syrups and rhums arrangés",
+  "habit": "your bar sells between 30 and 150 cocktails on a busy night"
+ },
+ {
+  "id": "P005",
+  "name": "Keisha",
+  "age": 45,
+  "segment": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+  "income": 49000,
+  "behaviour": "Mocktail builder",
+  "behaviour_how": "Is growing the no-alcohol list because more guests ask for it, looking for less sugary bases.",
+  "objection": "My guests order a mojito or a ti-punch, not a Koso",
+  "habit": "the hotel or owner reviews the cost of the drinks list every quarter"
+ },
+ {
+  "id": "P006",
+  "name": "Lena",
+  "age": 35,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 23000,
+  "behaviour": "Time-poor",
+  "behaviour_how": "Short-staffed in high season, wants anything that saves prep time behind the bar.",
+  "objection": "Will it taste the same from one batch to the next?",
+  "habit": "you already buy rum from Réunion distilleries and syrups from one main distributor"
+ },
+ {
+  "id": "P007",
+  "name": "Ivy",
+  "age": 27,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 27000,
+  "behaviour": "Craft and local",
+  "behaviour_how": "Already makes some syrups or rhums arrangés in-house and likes putting péi producers on the menu.",
+  "objection": "I can make my own syrups and rhums arrangés",
+  "habit": "the hotel or owner reviews the cost of the drinks list every quarter"
+ },
+ {
+  "id": "P008",
+  "name": "Kofi",
+  "age": 43,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 29000,
+  "behaviour": "Mocktail builder",
+  "behaviour_how": "Is growing the no-alcohol list because more guests ask for it, looking for less sugary bases.",
+  "objection": "23 euros a litre is two to three times what I pay for Monin",
+  "habit": "your bar sells between 30 and 150 cocktails on a busy night"
+ },
+ {
+  "id": "P009",
+  "name": "Maeve",
+  "age": 27,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 26000,
+  "behaviour": "Monin loyalist",
+  "behaviour_how": "Orders Monin through the usual distributor with the rest of the stock; values consistency and never running out.",
+  "objection": "A small producer might run out of stock in high season",
+  "habit": "your bar sells between 30 and 150 cocktails on a busy night"
+ },
+ {
+  "id": "P010",
+  "name": "Tess",
+  "age": 35,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 23000,
+  "behaviour": "Trend chaser",
+  "behaviour_how": "Changes the signature cocktails every season and posts them on Instagram.",
+  "objection": "It is fermented: how long does it keep once opened, and does it need the fridge?",
+  "habit": "you already buy rum from Réunion distilleries and syrups from one main distributor"
+ },
+ {
+  "id": "P011",
+  "name": "Mei",
+  "age": 35,
+  "segment": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+  "income": 53000,
+  "behaviour": "Margin-first",
+  "behaviour_how": "Calculates the cost of every cocktail and cuts anything that raises it without raising the menu price.",
+  "objection": "I can make my own syrups and rhums arrangés",
+  "habit": "your bar sells between 30 and 150 cocktails on a busy night"
+ },
+ {
+  "id": "P012",
+  "name": "Ines",
+  "age": 49,
+  "segment": "Owner-operator of a small bar or snack bar who orders everything himself (income in euros)",
+  "income": 30000,
+  "behaviour": "Margin-first",
+  "behaviour_how": "Calculates the cost of every cocktail and cuts anything that raises it without raising the menu price.",
+  "objection": "23 euros a litre is two to three times what I pay for Monin",
+  "habit": "you work evenings and weekends, peak season is December to February and July-August"
+ },
+ {
+  "id": "P013",
+  "name": "Mateo",
+  "age": 41,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 33000,
+  "behaviour": "Monin loyalist",
+  "behaviour_how": "Orders Monin through the usual distributor with the rest of the stock; values consistency and never running out.",
+  "objection": "Returning deposit bottles is one more thing to manage",
+  "habit": "you already buy rum from Réunion distilleries and syrups from one main distributor"
+ },
+ {
+  "id": "P014",
+  "name": "Tomas",
+  "age": 41,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 34000,
+  "behaviour": "Time-poor",
+  "behaviour_how": "Short-staffed in high season, wants anything that saves prep time behind the bar.",
+  "objection": "Is it alcoholic? I need to know for the no-alcohol menu and the paperwork",
+  "habit": "you work evenings and weekends, peak season is December to February and July-August"
+ },
+ {
+  "id": "P015",
+  "name": "Theo",
+  "age": 40,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 31000,
+  "behaviour": "Margin-first",
+  "behaviour_how": "Calculates the cost of every cocktail and cuts anything that raises it without raising the menu price.",
+  "objection": "I can make my own syrups and rhums arrangés",
+  "habit": "the hotel or owner reviews the cost of the drinks list every quarter"
+ },
+ {
+  "id": "P016",
+  "name": "Mira",
+  "age": 40,
+  "segment": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+  "income": 40000,
+  "behaviour": "Margin-first",
+  "behaviour_how": "Calculates the cost of every cocktail and cuts anything that raises it without raising the menu price.",
+  "objection": "It is fermented: how long does it keep once opened, and does it need the fridge?",
+  "habit": "you follow other Réunion bartenders on Instagram"
+ },
+ {
+  "id": "P017",
+  "name": "Hamza",
+  "age": 48,
+  "segment": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+  "income": 33000,
+  "behaviour": "Craft and local",
+  "behaviour_how": "Already makes some syrups or rhums arrangés in-house and likes putting péi producers on the menu.",
+  "objection": "Returning deposit bottles is one more thing to manage",
+  "habit": "the hotel or owner reviews the cost of the drinks list every quarter"
+ },
+ {
+  "id": "P018",
+  "name": "June",
+  "age": 29,
+  "segment": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+  "income": 37000,
+  "behaviour": "Mocktail builder",
+  "behaviour_how": "Is growing the no-alcohol list because more guests ask for it, looking for less sugary bases.",
+  "objection": "A small producer might run out of stock in high season",
+  "habit": "you already buy rum from Réunion distilleries and syrups from one main distributor"
+ },
+ {
+  "id": "P019",
+  "name": "Lina",
+  "age": 30,
+  "segment": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+  "income": 38000,
+  "behaviour": "Craft and local",
+  "behaviour_how": "Already makes some syrups or rhums arrangés in-house and likes putting péi producers on the menu.",
+  "objection": "Returning deposit bottles is one more thing to manage",
+  "habit": "you follow other Réunion bartenders on Instagram"
+ },
+ {
+  "id": "P020",
+  "name": "Ruby",
+  "age": 38,
+  "segment": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+  "income": 31000,
+  "behaviour": "Brand-standard hotel buyer",
+  "behaviour_how": "Has to go through purchasing, needs invoices, labels, allergen sheets and a reliable supplier.",
+  "objection": "Returning deposit bottles is one more thing to manage",
+  "habit": "you work evenings and weekends, peak season is December to February and July-August"
+ }
+]

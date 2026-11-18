@@ -1,0 +1,13 @@
+{
+  "id": "P006",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "quality",
+  "reason": "I'd ask for the free 12.5 cl sample, sure, but I won't put a naturally fermented syrup on my menu until I know it tastes the same every batch. In high season I can't rebuild a signature cocktail because the new bottle came out sourer or fizzier.",
+  "objection": "It's fermented with no additives, so how do I know the next litre will taste like this one, and that it won't keep fermenting in my fridge? At 23 euros a litre it's also two or three times my usual syrups.",
+  "would_change_my_mind": "Three samples from three different batches that taste the same, plus a stated shelf life once opened, so I can trust it in a cocktail I sell every night.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 19,
+  "price_too_expensive": 27
+}

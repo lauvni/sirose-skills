@@ -1,0 +1,13 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "habit",
+  "reason": "I get my Monin with the rest of the order from the distributor, it's always there and it tastes the same every time. At 23 euros a litre, about double what I pay for Monin, I'm not putting a small producer's syrup on the menu and risking a cocktail I can't make in high season.",
+  "objection": "A small producer might run out in high season, and a fermented syrup could taste different from one batch to the next. If a signature cocktail is built on it and it runs out, I'm stuck.",
+  "would_change_my_mind": "Getting it through my usual distributor, with guaranteed stock all season and the same taste every batch, at a price closer to 15 euros a litre. I'd take the free sample to taste it, but that alone won't make me order.",
+  "price_too_cheap": 6,
+  "price_cheap": 11,
+  "price_expensive": 16,
+  "price_too_expensive": 21
+}

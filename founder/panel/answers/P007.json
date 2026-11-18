@@ -1,0 +1,13 @@
+{
+  "id": "P007",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "habit",
+  "reason": "I already make my own syrups and rhums arrangés from péi fruit for a few euros a litre, and the owner goes through the drinks costs every quarter. I'd ask for the free sample out of curiosity, but I wouldn't put in a paid order this month.",
+  "objection": "23 euros a litre is a lot next to what my homemade syrups cost me, and I can't see yet what a fermented Koso does in a glass that my own syrup doesn't.",
+  "would_change_my_mind": "Tasting the sample and finding a flavour I genuinely can't make in-house, with a cost per cocktail low enough that the owner signs off at the quarterly review.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 26
+}

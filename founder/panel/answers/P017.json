@@ -1,0 +1,13 @@
+{
+  "id": "P017",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "need",
+  "reason": "I already make my own syrups and rhums arrangés in-house for a few euros a litre, so at 23 euros HT a litre I'd ask for the free samples and maybe put it on as a péi touch later, but I won't order this month. The quarterly cost review would flag it straight away next to my house syrups.",
+  "objection": "23 euros a litre is two to three times what my homemade syrups or a Monin cost me, and on top of that I have to manage returning deposit bottles, which my team will forget.",
+  "would_change_my_mind": "Tasting the sample and finding a flavour I genuinely can't make myself, priced closer to 15 euros HT, with the deposit bottles picked up at delivery without me having to track them.",
+  "price_too_cheap": 7,
+  "price_cheap": 12,
+  "price_expensive": 18,
+  "price_too_expensive": 25
+}

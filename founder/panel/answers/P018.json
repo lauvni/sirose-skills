@@ -1,0 +1,13 @@
+{
+  "id": "P018",
+  "buys": true,
+  "purchases_first_month": 1,
+  "reason_code": "need",
+  "reason": "I'm actively building out the no-alcohol list and guests want drinks that aren't just sugar, so a fermented local base is exactly what I'm hunting for. I'd ask for the free sample first, and if it holds up in a mocktail I'd order one litre to test on the menu, not more.",
+  "objection": "A small producer might run out of stock in high season, and I can't put a signature drink on the menu that disappears in December. Also 23 euros a litre is two to three times what I pay my main distributor for syrups.",
+  "would_change_my_mind": "",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 30
+}

@@ -1,0 +1,13 @@
+{
+  "id": "P003",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I like the local, upcycled, Japanese-method story and it would look great on Instagram for the summer menu, but I'd ask for the free sample first, I wouldn't order a litre blind. And it's fermented with no word on alcohol, so I can't put it on my no-alcohol menu or sort the paperwork until I know.",
+  "objection": "Fermented means there might be some alcohol in it, and nobody tells me how much. For my no-alcohol cocktails and for the paperwork I need it in writing. Also 23 euros a litre is double what I pay for a classic syrup on a short list like mine.",
+  "would_change_my_mind": "A technical sheet showing the alcohol level (under 0.5%), how long it keeps once opened, and a sample that tastes good enough to build a seasonal signature cocktail around it.",
+  "price_too_cheap": 8,
+  "price_cheap": 14,
+  "price_expensive": 20,
+  "price_too_expensive": 28
+}

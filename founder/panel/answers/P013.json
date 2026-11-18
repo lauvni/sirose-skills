@@ -1,0 +1,13 @@
+{
+  "id": "P013",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "habit",
+  "reason": "My Monin comes with the rest of the order from the distributor, it's always the same and I never run out. At 23 euros a litre, about double what I pay for a syrup, plus deposit bottles to track and send back, I don't see why I'd add a second supplier for a short cocktail list.",
+  "objection": "Another supplier and another delivery to manage, deposit bottles to keep and return, and a fermented product that might not taste the same from one batch to the next. If it runs out I can't just add it to the usual order.",
+  "would_change_my_mind": "If my distributor carried it so it arrives with the rest of the stock, in a one-way bottle, at around 15 euros, I'd take the free sample and maybe try it on one signature drink.",
+  "price_too_cheap": 6,
+  "price_cheap": 10,
+  "price_expensive": 15,
+  "price_too_expensive": 20
+}

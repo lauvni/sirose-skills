@@ -1,0 +1,13 @@
+{
+  "id": "P016",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I would ask for the free 12.5 cl sample, cost it out and test it on one signature cocktail, but I am not ordering litres this month until I know how long an open bottle lasts behind the bar. At 23 euros a litre it is two to three times my standard syrups, so every centilitre that goes off is margin I lose.",
+  "objection": "It is fermented: how long does it keep once opened, does it need the fridge, and does the taste drift from week to week? If half a litre goes in the bin, the real cost per cocktail is far above 23 euros a litre.",
+  "would_change_my_mind": "A written open shelf life of at least 4 weeks without refrigeration (or a clear fridge rule my team can follow), plus a cost-per-cocktail sheet showing a signature drink that sells for more because of it.",
+  "price_too_cheap": 7,
+  "price_cheap": 14,
+  "price_expensive": 22,
+  "price_too_expensive": 30
+}

@@ -1,0 +1,102 @@
+{
+ "n": 20,
+ "seed": 194793,
+ "customer": {
+  "business": "SIR'OTÉ by SAS Sir'Ose: Koso fermented syrup for bars and hotels in Réunion island",
+  "target": "The person who chooses and orders cocktail syrups (head bartender, bar manager or F&B manager) in a hotel, cocktail bar or restaurant bar in Réunion island",
+  "where": "Réunion island (Saint-Pierre, Saint-Gilles, Saint-Denis, Saint-Leu)",
+  "age": [
+   24,
+   52
+  ],
+  "segments": [
+   {
+    "name": "Head bartender in an independent cocktail bar or beach bar (pays in euros, salary shown)",
+    "share": 0.35,
+    "income": [
+     22000,
+     34000
+    ]
+   },
+   {
+    "name": "Bar manager in a restaurant or bistro with a short cocktail list (salary in euros)",
+    "share": 0.3,
+    "income": [
+     24000,
+     38000
+    ]
+   },
+   {
+    "name": "F&B manager or head of bar in a 3 to 5 star hotel (salary in euros)",
+    "share": 0.25,
+    "income": [
+     32000,
+     55000
+    ]
+   },
+   {
+    "name": "Owner-operator of a small bar or snack bar who orders everything himself (income in euros)",
+    "share": 0.1,
+    "income": [
+     18000,
+     40000
+    ]
+   }
+  ],
+  "behaviours": [
+   {
+    "name": "Monin loyalist",
+    "share": 0.22,
+    "how": "Orders Monin through the usual distributor with the rest of the stock; values consistency and never running out."
+   },
+   {
+    "name": "Margin-first",
+    "share": 0.18,
+    "how": "Calculates the cost of every cocktail and cuts anything that raises it without raising the menu price."
+   },
+   {
+    "name": "Craft and local",
+    "share": 0.16,
+    "how": "Already makes some syrups or rhums arrangés in-house and likes putting péi producers on the menu."
+   },
+   {
+    "name": "Mocktail builder",
+    "share": 0.14,
+    "how": "Is growing the no-alcohol list because more guests ask for it, looking for less sugary bases."
+   },
+   {
+    "name": "Brand-standard hotel buyer",
+    "share": 0.12,
+    "how": "Has to go through purchasing, needs invoices, labels, allergen sheets and a reliable supplier."
+   },
+   {
+    "name": "Trend chaser",
+    "share": 0.1,
+    "how": "Changes the signature cocktails every season and posts them on Instagram."
+   },
+   {
+    "name": "Time-poor",
+    "share": 0.08,
+    "how": "Short-staffed in high season, wants anything that saves prep time behind the bar."
+   }
+  ],
+  "objections": [
+   "23 euros a litre is two to three times what I pay for Monin",
+   "Will it taste the same from one batch to the next?",
+   "A small producer might run out of stock in high season",
+   "It is fermented: how long does it keep once opened, and does it need the fridge?",
+   "My guests order a mojito or a ti-punch, not a Koso",
+   "I can make my own syrups and rhums arrangés",
+   "Is it alcoholic? I need to know for the no-alcohol menu and the paperwork",
+   "Returning deposit bottles is one more thing to manage"
+  ],
+  "habits": [
+   "you work evenings and weekends, peak season is December to February and July-August",
+   "your bar sells between 30 and 150 cocktails on a busy night",
+   "the hotel or owner reviews the cost of the drinks list every quarter",
+   "you already buy rum from Réunion distilleries and syrups from one main distributor",
+   "you follow other Réunion bartenders on Instagram"
+  ]
+ },
+ "pitch": "SIR'OTÉ Koso, made in Saint-Pierre (Réunion) by SAS Sir'Ose: a naturally fermented fruit syrup (\"Koso\", a Japanese method), made from local fruit and upcycled co-products (pressed citrus, tea leaves), no additives.\nFor bars and hotels: a 1-litre professional format at 23 euros excluding VAT per litre, in a returnable deposit bottle, delivered to you in Réunion.\nUse it as the base of signature cocktails and no-alcohol cocktails. Free tasting samples (12.5 cl) on request.\nAlready served at a 4-star hotel in Réunion.\nPrice answers: give every price in euros excluding VAT for ONE LITRE of syrup."
+}

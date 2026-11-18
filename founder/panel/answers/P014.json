@@ -1,0 +1,13 @@
+{
+  "id": "P014",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "It's fermented and nobody tells me if there's alcohol in it, so I can't put it on my no-alcohol menu or sort the paperwork. And at 23 euros a litre for a short cocktail list, my Monin-type syrups do the job for a third of the price. I'd ask for the free sample, but I'm not ordering yet.",
+  "objection": "Fermented means maybe a bit of alcohol. If I can't write 0.0% on the no-alcohol menu with a spec sheet to back it, it's useless to me, and I don't have time in high season to chase a supplier for documents.",
+  "would_change_my_mind": "A technical sheet stating the alcohol content (ideally under 0.5% or 0.0%) and the shelf life once opened, plus a tasting where they show me two quick recipes that save my team prep time.",
+  "price_too_cheap": 8,
+  "price_cheap": 13,
+  "price_expensive": 18,
+  "price_too_expensive": 25
+}
