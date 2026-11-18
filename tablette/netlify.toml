@@ -1,0 +1,14 @@
+# Site statique de la tablette Sir'Ose : publié tel quel depuis dist/.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/data.enc"
+  [headers.values]
+    Cache-Control = "no-cache"
